@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: 教程 | 黛苏珂の谜之小站</title>
+  <title>使用手机定时运行python脚本 | 黛苏珂の谜之小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="沈航20级，一条什么都不会的咸鱼，圈子小，只要你主动我们就有故事。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="黛苏珂の谜之小站">
-<meta property="og:url" content="http://example.com/tags/%E6%95%99%E7%A8%8B/index.html">
+  <meta name="description" content="如题目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用手机定时运行python脚本">
+<meta property="og:url" content="http://example.com/2021/08/01/1/index.html">
 <meta property="og:site_name" content="黛苏珂の谜之小站">
-<meta property="og:description" content="沈航20级，一条什么都不会的咸鱼，圈子小，只要你主动我们就有故事。">
+<meta property="og:description" content="如题目">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-08-01T05:17:14.000Z">
+<meta property="article:modified_time" content="2021-08-01T06:08:39.620Z">
 <meta property="article:author" content="黛苏珂">
-<meta property="article:tag" content="“咸鱼,c++,算法,退役,啥都不会”">
+<meta property="article:tag" content="Termux">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="环境配置">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="黛苏珂の谜之小站" type="application/atom+xml">
@@ -159,36 +163,109 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-1" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/08/01/1/" class="archive-article-date">
-  	<time datetime="2021-08-01T05:17:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/08/01/1/">使用手机定时运行python脚本</a>
+    <h1 class="article-title" itemprop="name">
+      使用手机定时运行python脚本
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2021/08/01/1/" class="archive-article-date">
+  	<time datetime="2021-08-01T05:17:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如题目</p>
+<span id="more"></span>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><p>本文主要记录了Termux上的python环境配置，以及在Termux（linux)下的脚本定时运行，以方便像我这种买不起服务器的穷逼也有办法定时运行我的python脚本</p>
+<h2 id="安装Termux"><a href="#安装Termux" class="headerlink" title="安装Termux"></a>安装Termux</h2><p>如果可以科学上网的话，直接去Google Play搜索Termux下载即可。<br>这里丢一个酷安的下载链接。<a target="_blank" rel="noopener" href="https://www.coolapk.com/apk/com.termux">点击这里下载！</a></p>
+<h2 id="更换镜像源"><a href="#更换镜像源" class="headerlink" title="更换镜像源"></a>更换镜像源</h2><p>(如果你不嫌下载慢，或者有梯子的可以跳过这一步)<br>这里给一个国光的一键式操作。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sed -i <span class="string">&#x27;s@^\(deb.*stable main\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/termux-packages-24 stable main@&#x27;</span> $PREFIX/etc/apt/sources.list</span><br><span class="line"></span><br><span class="line">sed -i <span class="string">&#x27;s@^\(deb.*games stable\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/game-packages-24 games stable@&#x27;</span> $PREFIX/etc/apt/sources.list.d/game.list</span><br><span class="line"></span><br><span class="line">sed -i <span class="string">&#x27;s@^\(deb.*science stable\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/science-packages-24 science stable@&#x27;</span> $PREFIX/etc/apt/sources.list.d/science.list</span><br><span class="line"></span><br><span class="line">pkg update</span><br></pre></td></tr></table></figure>
+<p>复制粘贴运行上述命令即可。</p>
+<h2 id="一些基础的linux指令"><a href="#一些基础的linux指令" class="headerlink" title="一些基础的linux指令"></a>一些基础的linux指令</h2><ul>
+<li>ls 展开当前目录下的文件及文件夹</li>
+<li>cd ..返回上一级</li>
+<li>cd xxx 进入xxx文件夹</li>
+<li>在打开文件时 如果想要保存，按下esc，然后键入:wq（键入位置在屏幕左下角）<h2 id="安装Zsh"><a href="#安装Zsh" class="headerlink" title="安装Zsh"></a>安装Zsh</h2>一个非常好用的终端，比自带的bash不知道高到哪里去了<br>首先要安装curl<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install curl</span><br></pre></td></tr></table></figure>
+然后安装zsh<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">&quot;$(curl -fsSL https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh)&quot;</span>  </span><br></pre></td></tr></table></figure>
+gayhub上不了的也可以使用国光源<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">&quot;$(curl -fsSL https://html.sqlsec.com/termux-install.sh)&quot;</span>  </span><br></pre></td></tr></table></figure>
+<h2 id="安装Vim-文件编辑器"><a href="#安装Vim-文件编辑器" class="headerlink" title="安装Vim(文件编辑器)"></a>安装Vim(文件编辑器)</h2>挺好用的一个文件编辑工具，推荐安装<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install vim</span><br></pre></td></tr></table></figure>
+编辑.zshrc，更改默认编辑器。<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim .zshrc</span><br></pre></td></tr></table></figure>
+文件中加入这一条<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> EDITOR=<span class="string">&quot;vim&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Vim的简单配置"><a href="#Vim的简单配置" class="headerlink" title="Vim的简单配置"></a>Vim的简单配置</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim .vimrc</span><br></pre></td></tr></table></figure>
+键入i进入插入模式，加入以下内容<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set nu                <span class="comment">// 显示行号</span></span><br><span class="line">colorscheme desert    <span class="comment">// 颜色主题</span></span><br><span class="line">syntax on             <span class="comment">// 打开语法高亮</span></span><br></pre></td></tr></table></figure>
+ESC，然后:wq保存退出。<h2 id="安装Python"><a href="#安装Python" class="headerlink" title="安装Python"></a>安装Python</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install python -y</span><br></pre></td></tr></table></figure>
+<h3 id="安装库（以安装requests为例）"><a href="#安装库（以安装requests为例）" class="headerlink" title="安装库（以安装requests为例）"></a>安装库（以安装requests为例）</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install requests</span><br></pre></td></tr></table></figure>
+<h2 id="建立存储空间映射"><a href="#建立存储空间映射" class="headerlink" title="建立存储空间映射"></a>建立存储空间映射</h2>执行一键脚本（用来映射存储空间，同时可以美化界面）<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">&quot;$(curl -fsSLhttps://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh)“</span></span><br></pre></td></tr></table></figure>
+如果上不了gayhub的话可以自己手动键入指令<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">termux-setup-storage</span><br></pre></td></tr></table></figure>
+正常的话会弹出一个存储访问权限，选择是就好啦<br>创建Python运行目录快捷方式（此前先手动在手机目录创建名为0的目录）<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /data/data/com.termux/files/home/storage/shared/<span class="number">0</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h2 id="执行python代码"><a href="#执行python代码" class="headerlink" title="执行python代码"></a>执行python代码</h2>例，把1.py放在0目录下，然后执行<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python <span class="number">0</span>/<span class="number">1.</span>py</span><br></pre></td></tr></table></figure>
+如果上一步的创建软连接失败，也可以这样运行python代码<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python ~/storage/shared/<span class="number">0</span>/<span class="number">1.</span>py</span><br></pre></td></tr></table></figure>
+<h2 id="使用crontab进行定时任务"><a href="#使用crontab进行定时任务" class="headerlink" title="使用crontab进行定时任务"></a>使用crontab进行定时任务</h2>安装crontab模块<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install cronie</span><br></pre></td></tr></table></figure>
+防止设备休眠进程停止<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">termux-wake-lock</span><br></pre></td></tr></table></figure>
+开启crontab<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crond</span><br></pre></td></tr></table></figure>
+添加定时任务<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+添加一行<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">30</span> <span class="number">2</span> * * * python <span class="number">0</span>/<span class="number">1.</span>py</span><br></pre></td></tr></table></figure>
+这一行的意思是每天凌晨两点半开始运行命令python 0/1.py，也就实现了定时任务。如果想要更多的定制模式，请参考<a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/linux-crontab-tasks.html">点击这里(&gt;^ω^&lt;)</a><h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2></li>
+</ul>
+<ol>
+<li>请保持termux后台一直在运行，否则会失效。可以去百度查看你的手机如何设置才不杀后台</li>
+<li>这个软件不怎么费电，我看了一下也就占总耗电量的2%不到。</li>
+<li>如果定时任务没有执行，可能是crond服务没有开启，再执行一遍crond即可。<br>##更详细的Termux教程及配置<br>请参考国光。<a target="_blank" rel="noopener" href="https://www.sqlsec.com/2018/05/termux.html">Termux进阶配置</a></li>
+</ol>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Eternally831143/article/details/112759523">Termux定时运行python脚本</a></p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.coolapk.com/feed/11469577?shareKey=YzIxZTg4MmJlNTU2NWNjNWZlMDA~&shareUid=765390&shareFrom=com.coolapk.market_9.2-beta2">借助Termux实现手机运行Python代码</a></p>
+</blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>来根小鱼干好吗o( =·ω·= )m <i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -208,61 +285,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/08/01/1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/07/31/markdown%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2021-07-31T09:27:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-31</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/07/31/markdown%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">markdown快速入门</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/07/31/markdown%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">markdown快速入门</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">教程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.</span> <span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Termux"><span class="toc-number">1.1.</span> <span class="toc-text">安装Termux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%8D%A2%E9%95%9C%E5%83%8F%E6%BA%90"><span class="toc-number">1.2.</span> <span class="toc-text">更换镜像源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9A%84linux%E6%8C%87%E4%BB%A4"><span class="toc-number">1.3.</span> <span class="toc-text">一些基础的linux指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Zsh"><span class="toc-number">1.4.</span> <span class="toc-text">安装Zsh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Vim-%E6%96%87%E4%BB%B6%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-number">1.5.</span> <span class="toc-text">安装Vim(文件编辑器)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Vim%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE"><span class="toc-number">1.5.1.</span> <span class="toc-text">Vim的简单配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Python"><span class="toc-number">1.6.</span> <span class="toc-text">安装Python</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%BA%93%EF%BC%88%E4%BB%A5%E5%AE%89%E8%A3%85requests%E4%B8%BA%E4%BE%8B%EF%BC%89"><span class="toc-number">1.6.1.</span> <span class="toc-text">安装库（以安装requests为例）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E6%98%A0%E5%B0%84"><span class="toc-number">1.7.</span> <span class="toc-text">建立存储空间映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A7%E8%A1%8Cpython%E4%BB%A3%E7%A0%81"><span class="toc-number">1.8.</span> <span class="toc-text">执行python代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8crontab%E8%BF%9B%E8%A1%8C%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.9.</span> <span class="toc-text">使用crontab进行定时任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.10.</span> <span class="toc-text">注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">1.10.1.</span> <span class="toc-text">参考链接</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -285,9 +420,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
