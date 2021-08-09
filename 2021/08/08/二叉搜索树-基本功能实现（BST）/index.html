@@ -6,17 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2021/5 | 黛苏珂の谜之小站</title>
+  <title>二叉搜索树-基本功能实现（BST） | 黛苏珂の谜之小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="沈航20级，一条什么都不会的咸鱼，圈子小，只要你主动我们就有故事。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="黛苏珂の谜之小站">
-<meta property="og:url" content="http://example.com/archives/2021/05/index.html">
+  <meta name="description" content="如题目＞▽＜">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二叉搜索树-基本功能实现（BST）">
+<meta property="og:url" content="http://example.com/2021/08/08/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0%EF%BC%88BST%EF%BC%89/index.html">
 <meta property="og:site_name" content="黛苏珂の谜之小站">
-<meta property="og:description" content="沈航20级，一条什么都不会的咸鱼，圈子小，只要你主动我们就有故事。">
+<meta property="og:description" content="如题目＞▽＜">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-08-08T04:23:27.000Z">
+<meta property="article:modified_time" content="2021-08-09T06:12:12.155Z">
 <meta property="article:author" content="黛苏珂">
-<meta property="article:tag" content="“咸鱼,c++,算法,退役,啥都不会”">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="树">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="黛苏珂の谜之小站" type="application/atom+xml">
@@ -159,60 +162,223 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-二叉搜索树-基本功能实现（BST）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/05/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2021-05-03T08:05:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-03</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/05/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a>
+    <h1 class="article-title" itemprop="name">
+      二叉搜索树-基本功能实现（BST）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2021/08/08/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0%EF%BC%88BST%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2021-08-08T04:23:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如题目＞▽＜</p>
+<span id="more"></span>
+<h2 id="二叉树搜索树的概念"><a href="#二叉树搜索树的概念" class="headerlink" title="二叉树搜索树的概念"></a>二叉树搜索树的概念</h2><p>二叉搜索(排序)树（Binary Search Tree）是以一棵二叉树来组织的经典数据结构。每个节点是一个对象，包含的属性有left，right和data，left为该节点的左孩子，right为该节点的右孩子，data是它的值，如果相应的孩子节点不存在，则将该节点设置为NULL</p>
+<h2 id="BST的核心"><a href="#BST的核心" class="headerlink" title="BST的核心"></a>BST的核心</h2><p>设x为BST的一个节点，则有</p>
+<ol>
+<li>y是当前节点的右节点，则有<code>x.data&lt;y.data</code></li>
+<li>y是当前节点的左节点，则有<code>x.data&gt;y.data</code></li>
+<li>BST没有相同的节点</li>
+</ol>
+<h2 id="BST的数据结构"><a href="#BST的数据结构" class="headerlink" title="BST的数据结构"></a>BST的数据结构</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span><span class="comment">//节点</span></span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    Node *left, *right;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Tree</span>&#123;</span><span class="comment">//将该树打包成一个，只存放根节点</span></span><br><span class="line">    Node *root;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="BST的功能函数"><a href="#BST的功能函数" class="headerlink" title="BST的功能函数"></a>BST的功能函数</h2><h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><p>因为左子树的值小于根节点，右子树的值大于根节点，根据这个特点，我们可以从根节点开始，逐层递归，直到递归到叶节点再判断插在左子树还是右子树上<br><strong>注意：</strong> 根节点直接建立，不需要递归</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(Tree *tree,<span class="keyword">int</span> val)</span></span>&#123;<span class="comment">//传入树，以及所需要插入的值</span></span><br><span class="line">    Node *node = <span class="built_in"><span class="keyword">new</span></span> (Node);</span><br><span class="line">    node-&gt;data = val;</span><br><span class="line">    node-&gt;left = <span class="literal">NULL</span>;</span><br><span class="line">    node-&gt;right = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(tree-&gt;root==<span class="literal">NULL</span>)&#123;<span class="comment">//根节点建立</span></span><br><span class="line">        tree-&gt;root = node;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        Node *tmp = tree-&gt;root;</span><br><span class="line">        <span class="keyword">while</span>(tmp!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(tmp-&gt;data&lt;val)&#123;<span class="comment">//当前值大于节点值，放在右子树上</span></span><br><span class="line">                <span class="keyword">if</span>(tmp-&gt;right==<span class="literal">NULL</span>)&#123;</span><br><span class="line">                    tmp-&gt;right = node;</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                tmp = tmp-&gt;right;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(tmp-&gt;left==<span class="literal">NULL</span>)&#123;<span class="comment">//当前值小于节点值，放在左子树上</span></span><br><span class="line">                    tmp-&gt;left = node;</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                tmp = tmp-&gt;left;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="求树的深度"><a href="#求树的深度" class="headerlink" title="求树的深度"></a>求树的深度</h3><p>树的深度：该二叉树的最大层数<br>我们可以比较左子树和右子树的层数，将较大的层数加上当前层数（+1）逐层递归，直到递归到叶节点。</p>
+<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get_height</span><span class="params">(Node *node)</span></span>&#123;<span class="comment">//求树的深度</span></span><br><span class="line">    <span class="keyword">if</span>(node==<span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//出口</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(<span class="built_in">get_height</span>(node-&gt;left), <span class="built_in">get_height</span>(node-&gt;right))+<span class="number">1</span>;<span class="comment">//比较两个子树的深度加当前节点数进行递归</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="求树的最值"><a href="#求树的最值" class="headerlink" title="求树的最值"></a>求树的最值</h3><p>因为我们的BST永远保持左子树小于右子树，所以最大值一定在最右面一条路的叶节点上，同理，最小值一定在左面一条路的左子树上。</p>
+<h4 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h4><p>这里给出求最大值的代码，最小值同理</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get_max_binary</span><span class="params">(Node *node)</span></span>&#123;<span class="comment">//获取最大值</span></span><br><span class="line">    <span class="keyword">while</span>(node-&gt;right!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">        node = node-&gt;right;<span class="comment">//一直向右寻找</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> node-&gt;data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="当前树不是BST"><a href="#当前树不是BST" class="headerlink" title="当前树不是BST"></a>当前树不是BST</h4><p>这种情况下我们就需要将所有的节点进行遍历以找到最值</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get_max_normal</span><span class="params">(Node *node)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(node==<span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">int</span> mx = node-&gt;data;</span><br><span class="line">        mx = <span class="built_in">max</span>(<span class="built_in">get_max_normal</span>(node-&gt;left), mx);</span><br><span class="line">        mx = <span class="built_in">max</span>(<span class="built_in">get_max_normal</span>(node-&gt;right), mx);</span><br><span class="line">        <span class="keyword">return</span> mx;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>来根小鱼干好吗o( =·ω·= )m <i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">树</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/08/08/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0%EF%BC%88BST%EF%BC%89/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2021/08/09/%E5%B9%B6%E6%9F%A5%E9%9B%86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          并查集
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2021/08/02/%E4%B9%98%E6%B3%95%E9%80%86%E5%85%83%E4%B8%8E%E7%BB%84%E5%90%88%E6%95%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">乘法逆元与组合数</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">二叉树搜索树的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BST%E7%9A%84%E6%A0%B8%E5%BF%83"><span class="toc-number">2.</span> <span class="toc-text">BST的核心</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BST%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">BST的数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BST%E7%9A%84%E5%8A%9F%E8%83%BD%E5%87%BD%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">BST的功能函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E5%85%A5"><span class="toc-number">4.1.</span> <span class="toc-text">插入</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">4.1.1.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%82%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6"><span class="toc-number">4.2.</span> <span class="toc-text">求树的深度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="toc-number">4.2.1.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%82%E6%A0%91%E7%9A%84%E6%9C%80%E5%80%BC"><span class="toc-number">4.3.</span> <span class="toc-text">求树的最值</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-2"><span class="toc-number">4.3.1.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%93%E5%89%8D%E6%A0%91%E4%B8%8D%E6%98%AFBST"><span class="toc-number">4.3.2.</span> <span class="toc-text">当前树不是BST</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -235,8 +401,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
