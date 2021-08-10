@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://example.com/img/shu1.png">
 <meta property="og:image" content="http://example.com/img/shu2.png">
 <meta property="article:published_time" content="2021-08-09T08:03:22.000Z">
-<meta property="article:modified_time" content="2021-08-09T09:05:40.552Z">
+<meta property="article:modified_time" content="2021-08-09T13:00:59.768Z">
 <meta property="article:author" content="黛苏珂">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
@@ -189,7 +189,7 @@
 <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>树状数组（Binary Index Tree, BIT），是一种简介好用的数据结构，最简单的树状数组支持两种操作</p>
 <ul>
 <li><strong>单点修改</strong>：更改数组中某一个元素的值</li>
-<li><strong>区间查询</strong>：查询一个区间内所有元素的和<h1 id="BIT的引入"><a href="#BIT的引入" class="headerlink" title="BIT的引入"></a>BIT的引入</h1>对于普通数组，我们可以在$O(1)$的时间复杂度下修改元素，但区间求和则需要$O(n)$的复杂度</li>
+<li><strong>区间查询</strong>：查询一个区间内所有元素的和<h2 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h2>可以解决大部分基于区间上的更新与求和问题<h2 id="与线段树的区别"><a href="#与线段树的区别" class="headerlink" title="与线段树的区别"></a>与线段树的区别</h2>线段树是一个正经的二叉树，而树状数组会删去一定量的右枝，如果只用于区间求和，使用树状数组（代码段，少占空间）。如果在区间基础上实现更多的功能，则需要使用线段树<h1 id="BIT的引入"><a href="#BIT的引入" class="headerlink" title="BIT的引入"></a>BIT的引入</h1>对于普通数组，我们可以在$O(1)$的时间复杂度下修改元素，但区间求和则需要$O(n)$的复杂度</li>
 </ul>
 <p>而对于前缀和数组，我们虽然可以在$O(1)$的时间复杂度下求区间长度，但由于修改元素会影响前缀和数组后面的元素，因此时间复杂度为$O(n)$</p>
 <p>为了保证这两种操作的时间复杂度能均衡一点，我们便可以将数组分成若干个小区间进行维护，因此我们引入了BIT</p>
@@ -204,6 +204,15 @@
 <h2 id="求前n项和"><a href="#求前n项和" class="headerlink" title="求前n项和"></a>求前n项和</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> pos = n; pos; pos -= <span class="built_in">lowbit</span>(pos))</span><br><span class="line">        ans += tree[pos];</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="区间查询"><a href="#区间查询" class="headerlink" title="区间查询"></a>区间查询</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">query</span>(b) - <span class="built_in">query</span>(a - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在初始化的时候，我们只需将每个点都update即可。</p>
+<h1 id="树状数组的几种变式（区间更新、区间查询）"><a href="#树状数组的几种变式（区间更新、区间查询）" class="headerlink" title="树状数组的几种变式（区间更新、区间查询）"></a>树状数组的几种变式（区间更新、区间查询）</h1><h2 id="单点更新，单点查询"><a href="#单点更新，单点查询" class="headerlink" title="单点更新，单点查询"></a>单点更新，单点查询</h2><p>普通数组即可</p>
+<h2 id="单点更新，区间查询"><a href="#单点更新，区间查询" class="headerlink" title="单点更新，区间查询"></a>单点更新，区间查询</h2><p>见上述详解</p>
+<p>例题：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3374">树状数组 1</a></p>
+<h2 id="区间更新，单点查询"><a href="#区间更新，单点查询" class="headerlink" title="区间更新，单点查询"></a>区间更新，单点查询</h2><p>我们可以引入一个差分数组b<br>设数组原数组为a，则有$b[i]=a[i]-a[i-1];(a[0]=0;)$，那么$a[i]=b[1]+….+b[i]$，求单点就是差分数组的前n项和，剩下都一样了</p>
+<p>例题：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3368">树状数组 2</a></p>
+<h2 id="多维区间查询"><a href="#多维区间查询" class="headerlink" title="多维区间查询"></a>多维区间查询</h2><p>对于分块的区间查询，要注意块与块之间的重叠<br><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4054">计数问题</a></p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/xenny/p/9739600.html">树状数组详解</a><br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/54746883">关于线段树(Segment tree)和树状数组(BIT)的区别？</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/93795692">算法学习笔记(2) : 树状数组</a></p>
+</blockquote>
 
       
 
@@ -347,7 +356,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#BIT%E7%9A%84%E5%BC%95%E5%85%A5"><span class="toc-number">2.</span> <span class="toc-text">BIT的引入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#BIT%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">3.</span> <span class="toc-text">BIT的定义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text">代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E7%82%B9%E4%BF%AE%E6%94%B9"><span class="toc-number">4.1.</span> <span class="toc-text">单点修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%82%E5%89%8Dn%E9%A1%B9%E5%92%8C"><span class="toc-number">4.2.</span> <span class="toc-text">求前n项和</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BA%E9%97%B4%E6%9F%A5%E8%AF%A2"><span class="toc-number">4.3.</span> <span class="toc-text">区间查询</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E9%80%94"><span class="toc-number">1.1.</span> <span class="toc-text">用途</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8E%E7%BA%BF%E6%AE%B5%E6%A0%91%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.2.</span> <span class="toc-text">与线段树的区别</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#BIT%E7%9A%84%E5%BC%95%E5%85%A5"><span class="toc-number">2.</span> <span class="toc-text">BIT的引入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#BIT%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">3.</span> <span class="toc-text">BIT的定义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text">代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E7%82%B9%E4%BF%AE%E6%94%B9"><span class="toc-number">4.1.</span> <span class="toc-text">单点修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%82%E5%89%8Dn%E9%A1%B9%E5%92%8C"><span class="toc-number">4.2.</span> <span class="toc-text">求前n项和</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BA%E9%97%B4%E6%9F%A5%E8%AF%A2"><span class="toc-number">4.3.</span> <span class="toc-text">区间查询</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E7%9A%84%E5%87%A0%E7%A7%8D%E5%8F%98%E5%BC%8F%EF%BC%88%E5%8C%BA%E9%97%B4%E6%9B%B4%E6%96%B0%E3%80%81%E5%8C%BA%E9%97%B4%E6%9F%A5%E8%AF%A2%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">树状数组的几种变式（区间更新、区间查询）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E7%82%B9%E6%9B%B4%E6%96%B0%EF%BC%8C%E5%8D%95%E7%82%B9%E6%9F%A5%E8%AF%A2"><span class="toc-number">5.1.</span> <span class="toc-text">单点更新，单点查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E7%82%B9%E6%9B%B4%E6%96%B0%EF%BC%8C%E5%8C%BA%E9%97%B4%E6%9F%A5%E8%AF%A2"><span class="toc-number">5.2.</span> <span class="toc-text">单点更新，区间查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BA%E9%97%B4%E6%9B%B4%E6%96%B0%EF%BC%8C%E5%8D%95%E7%82%B9%E6%9F%A5%E8%AF%A2"><span class="toc-number">5.3.</span> <span class="toc-text">区间更新，单点查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%BB%B4%E5%8C%BA%E9%97%B4%E6%9F%A5%E8%AF%A2"><span class="toc-number">5.4.</span> <span class="toc-text">多维区间查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">5.4.1.</span> <span class="toc-text">参考链接</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -497,15 +506,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -517,11 +526,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">批处理</a>
+                <a href="javascript:void(0)" class="js-tag color3">杂记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂记</a>
+                <a href="javascript:void(0)" class="js-tag color4">批处理</a>
               </li>
             
             <div class="clearfix"></div>
