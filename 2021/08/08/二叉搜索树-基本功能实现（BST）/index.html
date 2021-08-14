@@ -16,7 +16,7 @@
 <meta property="og:description" content="如题目＞▽＜">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-08T04:23:27.000Z">
-<meta property="article:modified_time" content="2021-08-09T06:12:12.155Z">
+<meta property="article:modified_time" content="2021-08-14T03:38:29.729Z">
 <meta property="article:author" content="黛苏珂">
 <meta property="article:tag" content="数据结构">
 <meta property="article:tag" content="树">
@@ -201,6 +201,13 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get_max_binary</span><span class="params">(Node *node)</span></span>&#123;<span class="comment">//获取最大值</span></span><br><span class="line">    <span class="keyword">while</span>(node-&gt;right!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">        node = node-&gt;right;<span class="comment">//一直向右寻找</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> node-&gt;data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="当前树不是BST"><a href="#当前树不是BST" class="headerlink" title="当前树不是BST"></a>当前树不是BST</h4><p>这种情况下我们就需要将所有的节点进行遍历以找到最值</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get_max_normal</span><span class="params">(Node *node)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(node==<span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">int</span> mx = node-&gt;data;</span><br><span class="line">        mx = <span class="built_in">max</span>(<span class="built_in">get_max_normal</span>(node-&gt;left), mx);</span><br><span class="line">        mx = <span class="built_in">max</span>(<span class="built_in">get_max_normal</span>(node-&gt;right), mx);</span><br><span class="line">        <span class="keyword">return</span> mx;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h3><p>一棵二叉树由根结点、左子树和右子树三部分组成，若规定 D、L、R 分别代表遍历根结点、遍历左子树、遍历右子树</p>
+<h4 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h4><p>DLR–前序遍历（根在前，从左往右，一棵树的根永远在左子树前面，左子树又永远在右子树前面 ）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(Node *node)</span></span>&#123;<span class="comment">//前序遍历</span></span><br><span class="line">    <span class="keyword">if</span>(node!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">        cout &lt;&lt; node-&gt;data &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        <span class="built_in">preorder</span>(node-&gt;left);</span><br><span class="line">        <span class="built_in">preorder</span>(node-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h4><p>LDR–中序遍历（根在中，从左往右，一棵树的左子树永远在根前面，根永远在右子树前面）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorder</span><span class="params">(Node *node)</span></span>&#123;<span class="comment">//中序遍历</span></span><br><span class="line">    <span class="keyword">if</span>(node!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="built_in">inorder</span>(node-&gt;left);</span><br><span class="line">        cout &lt;&lt; node-&gt;data &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        <span class="built_in">inorder</span>(node-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h4><p>LRD–后序遍历（根在后，从左往右，一棵树的左子树永远在右子树前面，右子树永远在根前面）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(Node *node)</span></span>&#123;<span class="comment">//后序遍历</span></span><br><span class="line">    <span class="keyword">if</span>(node!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="built_in">postorder</span>(node-&gt;left);</span><br><span class="line">        <span class="built_in">postorder</span>(node-&gt;right);</span><br><span class="line">        cout &lt;&lt; node-&gt;data &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -359,7 +366,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">二叉树搜索树的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BST%E7%9A%84%E6%A0%B8%E5%BF%83"><span class="toc-number">2.</span> <span class="toc-text">BST的核心</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BST%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">BST的数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BST%E7%9A%84%E5%8A%9F%E8%83%BD%E5%87%BD%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">BST的功能函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E5%85%A5"><span class="toc-number">4.1.</span> <span class="toc-text">插入</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">4.1.1.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%82%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6"><span class="toc-number">4.2.</span> <span class="toc-text">求树的深度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="toc-number">4.2.1.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%82%E6%A0%91%E7%9A%84%E6%9C%80%E5%80%BC"><span class="toc-number">4.3.</span> <span class="toc-text">求树的最值</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-2"><span class="toc-number">4.3.1.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%93%E5%89%8D%E6%A0%91%E4%B8%8D%E6%98%AFBST"><span class="toc-number">4.3.2.</span> <span class="toc-text">当前树不是BST</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">二叉树搜索树的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BST%E7%9A%84%E6%A0%B8%E5%BF%83"><span class="toc-number">2.</span> <span class="toc-text">BST的核心</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BST%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">BST的数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BST%E7%9A%84%E5%8A%9F%E8%83%BD%E5%87%BD%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">BST的功能函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E5%85%A5"><span class="toc-number">4.1.</span> <span class="toc-text">插入</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">4.1.1.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%82%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6"><span class="toc-number">4.2.</span> <span class="toc-text">求树的深度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="toc-number">4.2.1.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%82%E6%A0%91%E7%9A%84%E6%9C%80%E5%80%BC"><span class="toc-number">4.3.</span> <span class="toc-text">求树的最值</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-2"><span class="toc-number">4.3.1.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%93%E5%89%8D%E6%A0%91%E4%B8%8D%E6%98%AFBST"><span class="toc-number">4.3.2.</span> <span class="toc-text">当前树不是BST</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8D%E5%8E%86"><span class="toc-number">4.4.</span> <span class="toc-text">遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="toc-number">4.4.1.</span> <span class="toc-text">前序遍历</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="toc-number">4.4.2.</span> <span class="toc-text">中序遍历</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="toc-number">4.4.3.</span> <span class="toc-text">后序遍历</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -489,7 +496,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -497,11 +504,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模板</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,11 +536,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂记</a>
+                <a href="javascript:void(0)" class="js-tag color4">批处理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">批处理</a>
+                <a href="javascript:void(0)" class="js-tag color3">杂记</a>
               </li>
             
             <div class="clearfix"></div>
