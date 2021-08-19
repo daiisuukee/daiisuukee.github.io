@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>C++ STL(标准模板库)引入及使用 | 黛苏珂の谜之小站</title>
+  <title>C++ STL(标准模板库)引入及使用 1 | 黛苏珂の谜之小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="如题目＞▽＜">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++ STL(标准模板库)引入及使用">
+<meta property="og:title" content="C++ STL(标准模板库)引入及使用 1">
 <meta property="og:url" content="http://example.com/2021/08/17/C++%20STL(%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93)%E5%BC%95%E5%85%A5%E5%8F%8A%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="黛苏珂の谜之小站">
 <meta property="og:description" content="如题目＞▽＜">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-17T04:11:41.000Z">
-<meta property="article:modified_time" content="2021-08-17T11:59:30.601Z">
+<meta property="article:modified_time" content="2021-08-19T04:07:41.162Z">
 <meta property="article:author" content="黛苏珂">
 <meta property="article:tag" content="c++">
 <meta property="article:tag" content="数据结构">
@@ -170,7 +170,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      C++ STL(标准模板库)引入及使用
+      C++ STL(标准模板库)引入及使用 1
     </h1>
   
 
@@ -243,17 +243,7 @@
 <h2 id="填充-fill-amp-fill-n"><a href="#填充-fill-amp-fill-n" class="headerlink" title="填充 fill&amp;fill_n"></a>填充 fill&amp;fill_n</h2></li>
 <li>快速填充一段区间内的值（相当于memset）<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[]=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> n=<span class="built_in"><span class="keyword">sizeof</span></span>(arr)/ <span class="built_in"><span class="keyword">sizeof</span></span>(arr[<span class="number">0</span>]);</span><br><span class="line"><span class="built_in">fill</span>(arr,arr+n,<span class="number">0</span>);</span><br><span class="line"><span class="built_in">fill_n</span>(arr,n,<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
 <h2 id="最大公约数-gcd"><a href="#最大公约数-gcd" class="headerlink" title="最大公约数 gcd"></a>最大公约数 gcd</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cout&lt;&lt;__gcd(<span class="number">2</span>,<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="排列"><a href="#排列" class="headerlink" title="排列"></a>排列</h2>生成全排列(n!复杂度，少用)<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> orl[]=&#123;<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>&#125;;</span><br><span class="line"><span class="built_in">sort</span>(olr,olr+<span class="number">3</span>);</span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">    cout &lt;&lt; orl[<span class="number">0</span>] &lt;&lt; orl[<span class="number">1</span>] &lt;&lt; orl[<span class="number">2</span>] &lt;&lt; endl;</span><br><span class="line">&#125; <span class="keyword">while</span> (<span class="built_in">next_permutation</span>(orl, orl + <span class="number">3</span>));<span class="comment">//升序全排列</span></span><br><span class="line"><span class="comment">//&#125; while (prev_permutation(orl, orl + 3));//降序全排列</span></span><br></pre></td></tr></table></figure>
-<h1 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h1></li>
-</ul>
-<hr>
-<h2 id="向量-vector"><a href="#向量-vector" class="headerlink" title="向量 vector"></a>向量 vector</h2><ul>
-<li>定义<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="keyword">int</span>&gt;arr;</span><br><span class="line">vector&lt;<span class="keyword">int</span>&gt;<span class="built_in">arr1</span>(<span class="number">10000</span>, <span class="number">0x3f3f3f3f</span>);<span class="comment">//第一个是大小，第二个是初始值</span></span><br></pre></td></tr></table></figure></li>
-<li>传入值<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr.<span class="built_in">push_back</span>(<span class="number">1</span>);</span><br><span class="line">arr.<span class="built_in">emplace_back</span>(<span class="number">1</span>);<span class="comment">//推荐，这个是按引用传递，能快一点</span></span><br><span class="line">arr[<span class="number">3</span>]=<span class="number">1</span>;<span class="comment">//直接更改</span></span><br></pre></td></tr></table></figure></li>
-<li>大小&amp;容积<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>;i++)&#123;</span><br><span class="line">    arr.<span class="built_in">emplace_back</span>(<span class="number">1</span>);<span class="comment">//size（大小）与capacity（容积）的比较</span></span><br><span class="line">    cout &lt;&lt; arr.<span class="built_in">size</span>() &lt;&lt; <span class="string">&quot;/&quot;</span> &lt;&lt; arr.<span class="built_in">capacity</span>() &lt;&lt; endl;<span class="comment">//倍增-&gt;log n</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>重定义大小&amp;清空<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr.<span class="built_in">resize</span>(<span class="number">100</span>);</span><br><span class="line">cout &lt;&lt; arr.<span class="built_in">size</span>() &lt;&lt; <span class="string">&quot;/&quot;</span> &lt;&lt; arr.<span class="built_in">capacity</span>() &lt;&lt; endl;</span><br><span class="line">arr.<span class="built_in">clear</span>();<span class="comment">//在size清空的条件下，不清空capacity</span></span><br><span class="line">arr.<span class="built_in">emplace_back</span>(<span class="number">1</span>);</span><br><span class="line">cout &lt;&lt; arr.<span class="built_in">size</span>() &lt;&lt; <span class="string">&quot;/&quot;</span> &lt;&lt; arr.<span class="built_in">capacity</span>() &lt;&lt; endl;</span><br></pre></td></tr></table></figure></li>
-<li>推荐宏定义<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> all(arr) arr.begin(),arr.end()</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rall(arr) arr.rbegin(),arr.rend()</span></span><br></pre></td></tr></table></figure></li>
-<li>离散化(得到大数字的相对大小，)<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure></li>
+<h2 id="排列"><a href="#排列" class="headerlink" title="排列"></a>排列</h2>生成全排列(n!复杂度，少用)<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> orl[]=&#123;<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>&#125;;</span><br><span class="line"><span class="built_in">sort</span>(olr,olr+<span class="number">3</span>);</span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">    cout &lt;&lt; orl[<span class="number">0</span>] &lt;&lt; orl[<span class="number">1</span>] &lt;&lt; orl[<span class="number">2</span>] &lt;&lt; endl;</span><br><span class="line">&#125; <span class="keyword">while</span> (<span class="built_in">next_permutation</span>(orl, orl + <span class="number">3</span>));<span class="comment">//升序全排列</span></span><br><span class="line"><span class="comment">//&#125; while (prev_permutation(orl, orl + 3));//降序全排列</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -377,6 +367,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2021/08/19/C++%20STL(%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93)%E5%BC%95%E5%85%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%202/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          C++ STL(标准模板库)引入及使用 2
+        
+      </div>
+    </a>
+  
   
     <a href="/2021/08/12/week5/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">week5</div>
@@ -406,7 +405,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%95%E7%94%A8-Reference"><span class="toc-number">1.</span> <span class="toc-text">引用 Reference</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B1%BB-class-struct"><span class="toc-number">2.</span> <span class="toc-text">类 class struct</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.</span> <span class="toc-text">重载运算符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0-lambda-expressions"><span class="toc-number">4.</span> <span class="toc-text">匿名函数 lambda expressions</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pair-lt-T1-T2-gt"><span class="toc-number">5.</span> <span class="toc-text">pair&lt;T1,T2&gt;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8-Iterator"><span class="toc-number">6.</span> <span class="toc-text">迭代器 Iterator</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%B1%BB"><span class="toc-number">6.1.</span> <span class="toc-text">分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">6.2.</span> <span class="toc-text">使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F-sort-amp-stable-sort"><span class="toc-number">7.</span> <span class="toc-text">排序 sort&amp;stable_sort</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE-lower-bound-amp-upper-bound"><span class="toc-number">8.</span> <span class="toc-text">二分查找 lower_bound&amp;upper_bound</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E7%AE%97%E6%B3%95"><span class="toc-number">9.</span> <span class="toc-text">一些简单算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A4%E7%BA%A7%E5%8F%8D%E8%BD%AC-reverse"><span class="toc-number">9.1.</span> <span class="toc-text">两级反转 reverse</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A1%AB%E5%85%85-fill-amp-fill-n"><span class="toc-number">9.2.</span> <span class="toc-text">填充 fill&amp;fill_n</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0-gcd"><span class="toc-number">9.3.</span> <span class="toc-text">最大公约数 gcd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%88%97"><span class="toc-number">9.4.</span> <span class="toc-text">排列</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8"><span class="toc-number">10.</span> <span class="toc-text">容器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%91%E9%87%8F-vector"><span class="toc-number">10.1.</span> <span class="toc-text">向量 vector</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%95%E7%94%A8-Reference"><span class="toc-number">1.</span> <span class="toc-text">引用 Reference</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B1%BB-class-struct"><span class="toc-number">2.</span> <span class="toc-text">类 class struct</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.</span> <span class="toc-text">重载运算符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0-lambda-expressions"><span class="toc-number">4.</span> <span class="toc-text">匿名函数 lambda expressions</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pair-lt-T1-T2-gt"><span class="toc-number">5.</span> <span class="toc-text">pair&lt;T1,T2&gt;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8-Iterator"><span class="toc-number">6.</span> <span class="toc-text">迭代器 Iterator</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%B1%BB"><span class="toc-number">6.1.</span> <span class="toc-text">分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">6.2.</span> <span class="toc-text">使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F-sort-amp-stable-sort"><span class="toc-number">7.</span> <span class="toc-text">排序 sort&amp;stable_sort</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE-lower-bound-amp-upper-bound"><span class="toc-number">8.</span> <span class="toc-text">二分查找 lower_bound&amp;upper_bound</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E7%AE%97%E6%B3%95"><span class="toc-number">9.</span> <span class="toc-text">一些简单算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A4%E7%BA%A7%E5%8F%8D%E8%BD%AC-reverse"><span class="toc-number">9.1.</span> <span class="toc-text">两级反转 reverse</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A1%AB%E5%85%85-fill-amp-fill-n"><span class="toc-number">9.2.</span> <span class="toc-text">填充 fill&amp;fill_n</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0-gcd"><span class="toc-number">9.3.</span> <span class="toc-text">最大公约数 gcd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%88%97"><span class="toc-number">9.4.</span> <span class="toc-text">排列</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -568,6 +567,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Termux</a>
               </li>
              
@@ -576,15 +579,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">批处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂记</a>
               </li>
             
             <div class="clearfix"></div>
