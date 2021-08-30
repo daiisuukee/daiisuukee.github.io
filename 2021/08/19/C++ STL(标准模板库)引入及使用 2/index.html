@@ -16,7 +16,7 @@
 <meta property="og:description" content="如题目＞▽＜">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-19T04:06:34.000Z">
-<meta property="article:modified_time" content="2021-08-19T11:47:20.091Z">
+<meta property="article:modified_time" content="2021-08-30T03:22:49.881Z">
 <meta property="article:author" content="黛苏珂">
 <meta property="article:tag" content="c++">
 <meta property="article:tag" content="数据结构">
@@ -186,9 +186,10 @@
         <p>如题目＞▽＜</p>
 <span id="more"></span>
 <h1 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h1><hr>
-<h2 id="向量-vector-查找-find-–-gt-查不到返回-set-end"><a href="#向量-vector-查找-find-–-gt-查不到返回-set-end" class="headerlink" title="向量 vector// 查找 find()–&gt;查不到返回_set.end()"></a>向量 vector// 查找 find()–&gt;查不到返回_set.end()</h2><p>cout&lt;&lt;*_set.find(100)&lt;&lt;endl;<br>// 二分查找，直接键入目标值<br>cout&lt;&lt;*_set.lower_bound(3)&lt;&lt;e ndl;<br>cout&lt;&lt;*_set.upper_bound(3)&lt;&lt;endl;<br>vector<int>arr1(10000, 0x3f3f3f3f);//第一个是大小，第二个是初始值</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- 传入值</span><br><span class="line">```C++</span><br><span class="line">arr.push_back(1);</span><br><span class="line">arr.emplace_back(1);//推荐，这个是按引用传递，能快一点</span><br><span class="line">arr[3]=1;//直接更改</span><br></pre></td></tr></table></figure>
+<h2 id="向量-vector-查找-find-–-gt-查不到返回-set-end"><a href="#向量-vector-查找-find-–-gt-查不到返回-set-end" class="headerlink" title="向量 vector// 查找 find()–&gt;查不到返回_set.end()"></a>向量 vector// 查找 find()–&gt;查不到返回_set.end()</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cout</span>&lt;&lt;*_set.find(<span class="number">100</span>)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="comment">// 二分查找，直接键入目标值</span></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;*_set.lower_bound(<span class="number">3</span>)&lt;&lt;e ndl;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;*_set.upper_bound(<span class="number">3</span>)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;arr1(<span class="number">10000</span>, <span class="number">0x3f3f3f3f</span>);<span class="comment">//第一个是大小，第二个是初始值</span></span><br></pre></td></tr></table></figure>
 <ul>
+<li><p>传入值</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr.<span class="built_in">push_back</span>(<span class="number">1</span>);</span><br><span class="line">arr.<span class="built_in">emplace_back</span>(<span class="number">1</span>);<span class="comment">//推荐，这个是按引用传递，能快一点</span></span><br><span class="line">arr[<span class="number">3</span>]=<span class="number">1</span>;<span class="comment">//直接更改</span></span><br></pre></td></tr></table></figure></li>
 <li><p>大小&amp;容积</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>;i++)&#123;</span><br><span class="line">    arr.<span class="built_in">emplace_back</span>(<span class="number">1</span>);<span class="comment">//size（大小）与capacity（容积）的比较</span></span><br><span class="line">    cout &lt;&lt; arr.<span class="built_in">size</span>() &lt;&lt; <span class="string">&quot;/&quot;</span> &lt;&lt; arr.<span class="built_in">capacity</span>() &lt;&lt; endl;<span class="comment">//倍增-&gt;log n</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>提取最值&amp;求和</p>
@@ -533,15 +534,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">训练</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">模板</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">训练</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -561,11 +562,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂记</a>
+                <a href="javascript:void(0)" class="js-tag color4">批处理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">批处理</a>
+                <a href="javascript:void(0)" class="js-tag color3">杂记</a>
               </li>
             
             <div class="clearfix"></div>
