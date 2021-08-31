@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>批处理顺序执行多条命令 | 黛苏珂の谜之小站</title>
+  <title>动态规划-从建表到放弃(1) | 黛苏珂の谜之小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="如题目＞▽＜">
+  <meta name="description" content="最值型、计数型、存在型、序列型、划分型、坐标型">
 <meta property="og:type" content="article">
-<meta property="og:title" content="批处理顺序执行多条命令">
-<meta property="og:url" content="http://example.com/2021/08/01/%E6%89%B9%E5%A4%84%E7%90%86%E9%A1%BA%E5%BA%8F%E6%89%A7%E8%A1%8C%E5%A4%9A%E6%9D%A1%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:title" content="动态规划-从建表到放弃(1)">
+<meta property="og:url" content="http://example.com/2021/08/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%BB%8E%E5%BB%BA%E8%A1%A8%E5%88%B0%E6%94%BE%E5%BC%83(1)/index.html">
 <meta property="og:site_name" content="黛苏珂の谜之小站">
-<meta property="og:description" content="如题目＞▽＜">
+<meta property="og:description" content="最值型、计数型、存在型、序列型、划分型、坐标型">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-08-01T06:33:26.000Z">
-<meta property="article:modified_time" content="2021-08-02T01:35:03.864Z">
+<meta property="article:published_time" content="2021-08-30T03:28:02.000Z">
+<meta property="article:modified_time" content="2021-08-31T03:27:50.443Z">
 <meta property="article:author" content="黛苏珂">
-<meta property="article:tag" content="批处理">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="黛苏珂の谜之小站" type="application/atom+xml">
@@ -161,40 +161,166 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-批处理顺序执行多条命令" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-动态规划-从建表到放弃(1)" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      批处理顺序执行多条命令
+      动态规划-从建表到放弃(1)
     </h1>
   
 
         
-        <a href="/2021/08/01/%E6%89%B9%E5%A4%84%E7%90%86%E9%A1%BA%E5%BA%8F%E6%89%A7%E8%A1%8C%E5%A4%9A%E6%9D%A1%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2021-08-01T06:33:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-01</time>
+        <a href="/2021/08/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%BB%8E%E5%BB%BA%E8%A1%A8%E5%88%B0%E6%94%BE%E5%BC%83(1)/" class="archive-article-date">
+  	<time datetime="2021-08-30T03:28:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>如题目＞▽＜</p>
+        <p>最值型、计数型、存在型、序列型、划分型、坐标型</p>
 <span id="more"></span>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>黛苏珂现在有三条命令，但她是个懒蛋，不想每次都自己进行输入，你能帮帮她吗？</p>
-<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>hexo clean<br>hexo g<br>hexo d</p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>使用批处理文件，根据不同的命令关系选择对应的方法</p>
-<h3 id="每条命令都没有关联"><a href="#每条命令都没有关联" class="headerlink" title="每条命令都没有关联"></a>每条命令都没有关联</h3><p>可以使用start 命令1 start 命令2 的格式</p>
-<h3 id="命令间有关联"><a href="#命令间有关联" class="headerlink" title="命令间有关联"></a>命令间有关联</h3><ol>
-<li>命令1 &amp; 命令2 &amp; 命令3 （无论前面命令是否故障，照样执行后面）</li>
-<li>命令1 &amp;&amp; 命令2 &amp;&amp; 命令3 （仅当前面命令执行成功时，才执行后面）</li>
-<li>命令1 || 命令2 || 命令3（仅当前面命令失败时，才执行后面）</li>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>动态规划（Dynamic Programming，DP），类似于高中学的数学归纳法，当我们计算dp[n]时，可以利用之前已经计算好的值来计算dp[n]。也可以理解成它是能够把递归计算中的重复计算减去的一种算法</p>
+<h2 id="动态规划题目的特点"><a href="#动态规划题目的特点" class="headerlink" title="动态规划题目的特点"></a>动态规划题目的特点</h2><ol>
+<li>计数</li>
 </ol>
-<h2 id="得出结论"><a href="#得出结论" class="headerlink" title="得出结论"></a>得出结论</h2><p>这个懒蛋只需要在bat里编辑</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-<p>就可以了</p>
+<ul>
+<li>有多少种方式走到右下角</li>
+<li>有多少种方法选出k个数使和是Sum</li>
+</ul>
+<ol start="2">
+<li>求最大最小值</li>
+</ol>
+<ul>
+<li>从左上角走到右下角路径的最大数字和</li>
+<li>求最大上升子序列长度</li>
+</ul>
+<ol start="3">
+<li>求存在性</li>
+</ol>
+<ul>
+<li>取石子游戏，先手能否胜利</li>
+<li>能否选出k个数使和是Sum<h2 id="求最值型动态规划"><a href="#求最值型动态规划" class="headerlink" title="求最值型动态规划"></a>求最值型动态规划</h2>题目：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/coin-change/">零钱兑换</a></li>
+</ul>
+<p>题意：给定几枚硬币，最少用几枚能拼出目标钱数</p>
+<h3 id="动态规划组成部分"><a href="#动态规划组成部分" class="headerlink" title="动态规划组成部分"></a>动态规划组成部分</h3><h4 id="1-确定状态"><a href="#1-确定状态" class="headerlink" title="1. 确定状态"></a>1. 确定状态</h4><ul>
+<li>最后一步： (最优策略中使用的<strong>最后一枚</strong>硬币$a_k$)</li>
+<li>子问题： (最少的硬币拼出<strong>更小</strong>的面额$21-a_k$)<h4 id="2-转移方程"><a href="#2-转移方程" class="headerlink" title="2. 转移方程"></a>2. 转移方程</h4>假设现在有2，5,7三种面额的钱</li>
+<li>$f[x] = min(f[x-2]+1,f[x-5]+1,f[x-7]+1)$<h4 id="3-初始条件和边界情况"><a href="#3-初始条件和边界情况" class="headerlink" title="3. 初始条件和边界情况"></a>3. 初始条件和边界情况</h4></li>
+<li>初始条件$f[0] = 0$,如果不能拼出Y,f[Y]=正无穷</li>
+<li>无边界情况<h2 id="计数型动态规划"><a href="#计数型动态规划" class="headerlink" title="计数型动态规划"></a>计数型动态规划</h2>题目：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/unique-paths/">不同路径</a></li>
+</ul>
+<p>题意：给定一个m行n列的网格，一个机器人从左上角(0,0)位置出发，每次只能向右或向下走一步，问走多少种不同的方式从左上角走到右下角</p>
+<h3 id="动态规划组成部分-1"><a href="#动态规划组成部分-1" class="headerlink" title="动态规划组成部分"></a>动态规划组成部分</h3><h4 id="1-确定状态-1"><a href="#1-确定状态-1" class="headerlink" title="1. 确定状态"></a>1. 确定状态</h4><ul>
+<li>最后一步:无论机器人如何到达右下角，一定在上一步中挪过来的(向右或向下)</li>
+<li>右下角坐标设为(m-1,n-1)</li>
+<li>前一步一定在(m-2,n-1)或者(m-1,n-2)上</li>
+<li>子问题：如果机器人有X种方式从左上角走到(m-2,n-1),Y种方式从左上角走到(m-1,n-2)，则机器人有X+Y种方式走到(m-1,n-1)</li>
+<li>状态:设f[i][j]为机器人有多少种方式从左上角走到(i,j)<h4 id="2-转移方程-1"><a href="#2-转移方程-1" class="headerlink" title="2. 转移方程"></a>2. 转移方程</h4></li>
+<li>$f[i][j]=f[i-1][j]+f[i][j-1]$<h4 id="3-初始条件和边界情况-1"><a href="#3-初始条件和边界情况-1" class="headerlink" title="3. 初始条件和边界情况"></a>3. 初始条件和边界情况</h4></li>
+<li>初始条件：f[0][0]=1，机器人只有一种方式走到左上角</li>
+<li>边界情况：f[i][0]=1,f[0][j]=1,每行每列只能一路走过来，因此也只有一种方式<br>进阶:<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/unique-paths-ii/">不同路径2,地图有障碍</a></li>
+</ul>
+<h2 id="存在型动态规划"><a href="#存在型动态规划" class="headerlink" title="存在型动态规划"></a>存在型动态规划</h2><p>题目：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/jump-game/">跳跃游戏</a></p>
+<p>题意：有n块石头分别在x轴的0,1，……，n-1位置，一只带黑框眼镜的青蛙在石头0上想跳到n-1上，如果ta在第i块石头上，ta最多可以向右跳距离$a_i$，问ta能否跳到n-1</p>
+<p>例子：</p>
+<ul>
+<li>$输入：a=[2,3,1,1,4]$</li>
+<li>$输出：True$</li>
+<li>$输入：a=[3,2,1,0,4]$</li>
+<li>$输出：False$<h3 id="动态规划组成部分-2"><a href="#动态规划组成部分-2" class="headerlink" title="动态规划组成部分"></a>动态规划组成部分</h3><h4 id="1-确定状态-2"><a href="#1-确定状态-2" class="headerlink" title="1. 确定状态"></a>1. 确定状态</h4></li>
+<li>最后一步：如果能从i跳过来，那么青蛙一定能跳到i并且最后一步不超过能跳过来的最大距离$n-1-i&lt;=a_i$</li>
+<li>子问题：能否跳到当前位置</li>
+<li>状态:设f[j]表示能否跳到石头j<h4 id="2-转移方程-2"><a href="#2-转移方程-2" class="headerlink" title="2. 转移方程"></a>2. 转移方程</h4></li>
+<li>$f[j]=OR_{0&lt;=i&lt;j}(f[i]ANDj-i&gt;=a[i])$<h4 id="3-初始条件和边界情况-2"><a href="#3-初始条件和边界情况-2" class="headerlink" title="3. 初始条件和边界情况"></a>3. 初始条件和边界情况</h4></li>
+<li>初始条件：f[0]=True 第一块石头一定能跳上去</li>
+<li>无边界情况<br>进阶：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/jump-game-ii/">跳跃游戏2,需要找到跳每一个位置的最小值</a></li>
+</ul>
+<h2 id="序列型动态规划-从下标1开始计算"><a href="#序列型动态规划-从下标1开始计算" class="headerlink" title="序列型动态规划(从下标1开始计算)"></a>序列型动态规划(从下标1开始计算)</h2><p>题目：<a target="_blank" rel="noopener" href="https://www.lintcode.com/problem/515/">房屋染色</a></p>
+<p>题意：</p>
+<ul>
+<li>有一排N栋房子，每栋房子需要刷：红、蓝、绿其中一种颜色</li>
+<li>任何两栋相邻房子不能刷成同一颜色</li>
+<li>第i栋房子染成红、蓝、绿的花费分别是cost[i][0]，cost[i][1],cost[i][2]</li>
+<li>最少要花多少钱油漆这些房子<h3 id="动态规划组成部分-3"><a href="#动态规划组成部分-3" class="headerlink" title="动态规划组成部分"></a>动态规划组成部分</h3><h4 id="1-确定状态-3"><a href="#1-确定状态-3" class="headerlink" title="1. 确定状态"></a>1. 确定状态</h4></li>
+<li>最后一步：最优策略中房子N-1一定染成 红、蓝、绿中的一种，而N-2栋房子一定不能和第N-1栋颜色一样（上一步的钱数与颜色两种因素共同影响当前步），<strong>所以我们需要再开一维来表示房子的颜色</strong></li>
+<li>子问题：求出前N栋房子并且第N-1栋房子在红、蓝、绿颜色的最小花费</li>
+<li>状态：设油漆<strong>前i栋房子</strong>，并且第i-1栋房子是红、蓝、绿的最小花费为f[i][0],f[i][1],f[i][2] <h4 id="2-转移方程-3"><a href="#2-转移方程-3" class="headerlink" title="2. 转移方程"></a>2. 转移方程</h4></li>
+<li>$f[i][0]=min{f[i-1][1]+cost[i-1][0],f[i-1][2]+cost[i-1][0]}$</li>
+<li>$f[i][1]=min{f[i-1][0]+cost[i-1][1],f[i-1][2]+cost[i-1][1]}$</li>
+<li>$f[i][2]=min{f[i-1][0]+cost[i-1][2],f[i-1][3]+cost[i-1][2]}$<h4 id="3-初始条件和边界情况-3"><a href="#3-初始条件和边界情况-3" class="headerlink" title="3. 初始条件和边界情况"></a>3. 初始条件和边界情况</h4></li>
+<li> 初始条件：f[0][0]=f[0][1]=f[0][2]=0 前0个什么都没有</li>
+<li> 无边界情况</li>
+</ul>
+<h2 id="划分型动态规划"><a href="#划分型动态规划" class="headerlink" title="划分型动态规划"></a>划分型动态规划</h2><p>题目：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/decode-ways/">解码方法</a></p>
+<p>题意：</p>
+<ul>
+<li>有一段由A-Z组成的字母串被加密成数字串</li>
+<li>加密方式：A-&gt;1,B-&gt;2,……Z-&gt;26</li>
+<li>给定加密后的数字串S,问有多少种方式解密成字符串<h3 id="动态规划组成部分-4"><a href="#动态规划组成部分-4" class="headerlink" title="动态规划组成部分"></a>动态规划组成部分</h3><h4 id="1-确定状态："><a href="#1-确定状态：" class="headerlink" title="1. 确定状态："></a>1. 确定状态：</h4></li>
+<li>最后一步：最后一个字母是最后一位数字还是最后两位数字转化成的</li>
+<li>子问题： 设数字串长度为N,要 求前N个字符的解密方式数，需要知道前N-1和前N-2个字符的解密方式数</li>
+<li>状态：设数字串S<strong>前i个数字</strong>解密成字母串有f[i]种方式<h4 id="2-转移方程-4"><a href="#2-转移方程-4" class="headerlink" title="2. 转移方程"></a>2. 转移方程</h4></li>
+<li>$f[i]=f<a href="S%5Bi%5D%E5%AF%B9%E5%BA%94%E4%B8%80%E4%B8%AA%E5%AD%97%E6%AF%8D">i-1</a>+f<a href="S%5Bi-1%5DS%5Bi%5D%E5%AF%B9%E5%BA%94%E4%B8%80%E4%B8%AA%E5%AD%97%E6%AF%8D">i-2</a>$<h4 id="3-初始条件和边界情况-4"><a href="#3-初始条件和边界情况-4" class="headerlink" title="3. 初始条件和边界情况"></a>3. 初始条件和边界情况</h4></li>
+<li>初始条件：f[0]=1 空串有一种解密</li>
+<li>边界情况：如果i=1，只看最后一位数字(没有两位数)</li>
+</ul>
+<h2 id="坐标型动态规划"><a href="#坐标型动态规划" class="headerlink" title="坐标型动态规划"></a>坐标型动态规划</h2><ol>
+<li>题目：<a target="_blank" rel="noopener" href="https://www.lintcode.com/problem/397/">最长上升连续子序列</a></li>
+</ol>
+<p>题意：给定一个数组，求出最长的连续子序列（单调上升或下降）</p>
+<h3 id="动态规划组成部分-5"><a href="#动态规划组成部分-5" class="headerlink" title="动态规划组成部分"></a>动态规划组成部分</h3><h4 id="1-确定状态：-1"><a href="#1-确定状态：-1" class="headerlink" title="1. 确定状态："></a>1. 确定状态：</h4><ul>
+<li>最后一步：对于最优策略，一定有最后一个元素a[j]，如果子序列长度大于1，那么最优策略a[j]的前一个元素肯定是a[j-1]，使得$a[j-1]&lt;a[j]$</li>
+<li>子问题： 要求以a[j]结尾的最长连续上升子序列,那么就要求以a[j-1]结尾的最长连续上升子序列</li>
+<li>状态：设f[j]=以a[j]结尾的最长连续上升子序列的长度<h4 id="2-转移方程-5"><a href="#2-转移方程-5" class="headerlink" title="2. 转移方程"></a>2. 转移方程</h4></li>
+<li>$f[i]=max(1,f[i-1]+1&amp;&amp;a[j-1]&lt;a[j])$<h4 id="3-初始条件和边界情况-5"><a href="#3-初始条件和边界情况-5" class="headerlink" title="3. 初始条件和边界情况"></a>3. 初始条件和边界情况</h4></li>
+<li>初始条件：无 </li>
+<li>边界情况：前面的数存在，并且前面的数小于当前数<h4 id="4-空间优化："><a href="#4-空间优化：" class="headerlink" title="4. 空间优化："></a>4. 空间优化：</h4>由于转移方程只涉及到i与i-1,所以我们可以用一个长度为2的滚动数组优化<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> f[<span class="number">2</span>],now=<span class="number">0</span>,old=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">    old=now;</span><br><span class="line">    now=<span class="number">1</span>-old;<span class="comment">//交换顺序，滚动起来</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<ol start="2">
+<li>题目：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-path-sum/">最小路径和</a></li>
+</ol>
+<p>题意：</p>
+<ul>
+<li>给定m*n的网格，每个格子（i,j)里都有一个非负数A[i][j]</li>
+<li>求一个从左上角到右下角的路径，每一步只能向右或向下走，求所有路径中最小的路径和<h3 id="动态规划组成部分-6"><a href="#动态规划组成部分-6" class="headerlink" title="动态规划组成部分"></a>动态规划组成部分</h3><h4 id="1-确定状态：-2"><a href="#1-确定状态：-2" class="headerlink" title="1. 确定状态："></a>1. 确定状态：</h4></li>
+<li>最后一步：一定是从上面或左面的总和最小过来的</li>
+<li>子问题： 要求(m-1,n-1)的最小路径和，需要知道(m-1,n-2),(m-2,n-1)的最小路径和加上(m-1,n-1)的大小</li>
+<li>状态：设从(0,0)走到(i,j)的最小数字总和f[i][j]<h4 id="2-转移方程-6"><a href="#2-转移方程-6" class="headerlink" title="2. 转移方程"></a>2. 转移方程</h4></li>
+<li>$f[i][j]=min(f[i-1][j],f[i][j-1])+A[i][j]$<h4 id="3-初始条件和边界情况-6"><a href="#3-初始条件和边界情况-6" class="headerlink" title="3. 初始条件和边界情况"></a>3. 初始条件和边界情况</h4></li>
+<li>初始条件：f[0][0]=A[0][0]</li>
+<li>边界情况：第一行和第一列只能从一个方向过来<h4 id="4-空间优化：-1"><a href="#4-空间优化：-1" class="headerlink" title="4. 空间优化："></a>4. 空间优化：</h4>由于转移方程只涉及到两行或两列，所以我们可以用两行的滚动数组优化，详见<a target="_blank" rel="noopener" href="https://leetcode-cn.com/submissions/detail/213165159/">戳我(～￣▽￣)→))<em>￣▽￣</em>)o</a></li>
+</ul>
+<hr>
+<ol start="3">
+<li>题目：<a target="_blank" rel="noopener" href="https://www.lintcode.com/problem/553/">炸弹袭击</a></li>
+</ol>
+<p>题意：</p>
+<ul>
+<li>有一个M*N的网格，每个格子可能是空的，可能有一个敌人，可能有一堵墙</li>
+<li>只能在某个空格子里放一个炸弹，炸弹会炸死所有同行同列的敌人，但是不能穿透墙，问最多能炸死几个敌人<h3 id="动态规划组成部分-7"><a href="#动态规划组成部分-7" class="headerlink" title="动态规划组成部分"></a>动态规划组成部分</h3><h4 id="1-确定状态：-3"><a href="#1-确定状态：-3" class="headerlink" title="1. 确定状态："></a>1. 确定状态：</h4></li>
+<li>假设：所有的格子都能放炸弹<ul>
+<li>有敌人的格子：格子里的敌人被炸死并且能够继续向四周爆炸</li>
+<li>有墙的格子：炸弹炸不死任何人</li>
+</ul>
+</li>
+<li>在(i,j)格放一个炸弹，能够向上炸死的敌人数：（接下来以向上为例）<ul>
+<li>(i,j)为空地：能向上炸死(i-1,j)人</li>
+<li>(i,j)为敌人:能向上炸死(i-1,j)+1人</li>
+<li>(i,j)为墙：0</li>
+</ul>
+</li>
+<li>最后一步：无</li>
+<li>子问题： 求(i,j)格能向上炸死的人数需要知道(i-1,j)格向上能炸死的敌人数</li>
+<li>状态：Up[i][j]表示(i,j)格放一个炸弹向上能炸死的敌人数<h4 id="2-转移方程-7"><a href="#2-转移方程-7" class="headerlink" title="2. 转移方程"></a>2. 转移方程</h4></li>
+<li>$f[n]=\begin{cases}<br>Up[i-1][j],&amp;if(i,j)格是空地\<br>Up[i-1][j]+1,&amp;if(i,j)格是敌人\<br>0,&amp;if(i,j)格是墙<br>\end{cases}$<h4 id="3-初始条件和边界情况-7"><a href="#3-初始条件和边界情况-7" class="headerlink" title="3. 初始条件和边界情况"></a>3. 初始条件和边界情况</h4></li>
+<li>初始条件：如果(0,j)格不是敌人，Up[0][j]=0,如果是敌人Up[0][j]=1;</li>
+<li>边界情况：同上</li>
+</ul>
 
       
 
@@ -239,7 +365,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">批处理</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
@@ -295,7 +421,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/08/01/%E6%89%B9%E5%A4%84%E7%90%86%E9%A1%BA%E5%BA%8F%E6%89%A7%E8%A1%8C%E5%A4%9A%E6%9D%A1%E5%91%BD%E4%BB%A4/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/08/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%BB%8E%E5%BB%BA%E8%A1%A8%E5%88%B0%E6%94%BE%E5%BC%83(1)/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -309,18 +435,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/08/01/week3/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/08/31/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%BB%8E%E5%BB%BA%E8%A1%A8%E5%88%B0%E6%94%BE%E5%BC%83(2)/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          week3
+          动态规划-从建表到放弃(2)
         
       </div>
     </a>
   
   
-    <a href="/2021/08/01/%E4%BD%BF%E7%94%A8%E6%89%8B%E6%9C%BA%E5%AE%9A%E6%97%B6%E8%BF%90%E8%A1%8Cpython%E8%84%9A%E6%9C%AC/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">使用手机定时运行python脚本</div>
+    <a href="/2021/08/21/week6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">week6</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -347,7 +473,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5"><span class="toc-number">2.</span> <span class="toc-text">输入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">解决办法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%8F%E6%9D%A1%E5%91%BD%E4%BB%A4%E9%83%BD%E6%B2%A1%E6%9C%89%E5%85%B3%E8%81%94"><span class="toc-number">3.1.</span> <span class="toc-text">每条命令都没有关联</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E9%97%B4%E6%9C%89%E5%85%B3%E8%81%94"><span class="toc-number">3.2.</span> <span class="toc-text">命令间有关联</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%97%E5%87%BA%E7%BB%93%E8%AE%BA"><span class="toc-number">4.</span> <span class="toc-text">得出结论</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E9%A2%98%E7%9B%AE%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">2.</span> <span class="toc-text">动态规划题目的特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%82%E6%9C%80%E5%80%BC%E5%9E%8B%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="toc-number">3.</span> <span class="toc-text">求最值型动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86"><span class="toc-number">3.1.</span> <span class="toc-text">动态规划组成部分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%A1%AE%E5%AE%9A%E7%8A%B6%E6%80%81"><span class="toc-number">3.1.1.</span> <span class="toc-text">1. 确定状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B"><span class="toc-number">3.1.2.</span> <span class="toc-text">2. 转移方程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%88%9D%E5%A7%8B%E6%9D%A1%E4%BB%B6%E5%92%8C%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5"><span class="toc-number">3.1.3.</span> <span class="toc-text">3. 初始条件和边界情况</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E6%95%B0%E5%9E%8B%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="toc-number">4.</span> <span class="toc-text">计数型动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86-1"><span class="toc-number">4.1.</span> <span class="toc-text">动态规划组成部分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%A1%AE%E5%AE%9A%E7%8A%B6%E6%80%81-1"><span class="toc-number">4.1.1.</span> <span class="toc-text">1. 确定状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B-1"><span class="toc-number">4.1.2.</span> <span class="toc-text">2. 转移方程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%88%9D%E5%A7%8B%E6%9D%A1%E4%BB%B6%E5%92%8C%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5-1"><span class="toc-number">4.1.3.</span> <span class="toc-text">3. 初始条件和边界情况</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%98%E5%9C%A8%E5%9E%8B%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="toc-number">5.</span> <span class="toc-text">存在型动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86-2"><span class="toc-number">5.1.</span> <span class="toc-text">动态规划组成部分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%A1%AE%E5%AE%9A%E7%8A%B6%E6%80%81-2"><span class="toc-number">5.1.1.</span> <span class="toc-text">1. 确定状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B-2"><span class="toc-number">5.1.2.</span> <span class="toc-text">2. 转移方程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%88%9D%E5%A7%8B%E6%9D%A1%E4%BB%B6%E5%92%8C%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5-2"><span class="toc-number">5.1.3.</span> <span class="toc-text">3. 初始条件和边界情况</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%9E%8B%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%BB%8E%E4%B8%8B%E6%A0%871%E5%BC%80%E5%A7%8B%E8%AE%A1%E7%AE%97"><span class="toc-number">6.</span> <span class="toc-text">序列型动态规划(从下标1开始计算)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86-3"><span class="toc-number">6.1.</span> <span class="toc-text">动态规划组成部分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%A1%AE%E5%AE%9A%E7%8A%B6%E6%80%81-3"><span class="toc-number">6.1.1.</span> <span class="toc-text">1. 确定状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B-3"><span class="toc-number">6.1.2.</span> <span class="toc-text">2. 转移方程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%88%9D%E5%A7%8B%E6%9D%A1%E4%BB%B6%E5%92%8C%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5-3"><span class="toc-number">6.1.3.</span> <span class="toc-text">3. 初始条件和边界情况</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%92%E5%88%86%E5%9E%8B%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="toc-number">7.</span> <span class="toc-text">划分型动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86-4"><span class="toc-number">7.1.</span> <span class="toc-text">动态规划组成部分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%A1%AE%E5%AE%9A%E7%8A%B6%E6%80%81%EF%BC%9A"><span class="toc-number">7.1.1.</span> <span class="toc-text">1. 确定状态：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B-4"><span class="toc-number">7.1.2.</span> <span class="toc-text">2. 转移方程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%88%9D%E5%A7%8B%E6%9D%A1%E4%BB%B6%E5%92%8C%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5-4"><span class="toc-number">7.1.3.</span> <span class="toc-text">3. 初始条件和边界情况</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9D%90%E6%A0%87%E5%9E%8B%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="toc-number">8.</span> <span class="toc-text">坐标型动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86-5"><span class="toc-number">8.1.</span> <span class="toc-text">动态规划组成部分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%A1%AE%E5%AE%9A%E7%8A%B6%E6%80%81%EF%BC%9A-1"><span class="toc-number">8.1.1.</span> <span class="toc-text">1. 确定状态：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B-5"><span class="toc-number">8.1.2.</span> <span class="toc-text">2. 转移方程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%88%9D%E5%A7%8B%E6%9D%A1%E4%BB%B6%E5%92%8C%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5-5"><span class="toc-number">8.1.3.</span> <span class="toc-text">3. 初始条件和边界情况</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E7%A9%BA%E9%97%B4%E4%BC%98%E5%8C%96%EF%BC%9A"><span class="toc-number">8.1.4.</span> <span class="toc-text">4. 空间优化：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86-6"><span class="toc-number">8.2.</span> <span class="toc-text">动态规划组成部分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%A1%AE%E5%AE%9A%E7%8A%B6%E6%80%81%EF%BC%9A-2"><span class="toc-number">8.2.1.</span> <span class="toc-text">1. 确定状态：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B-6"><span class="toc-number">8.2.2.</span> <span class="toc-text">2. 转移方程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%88%9D%E5%A7%8B%E6%9D%A1%E4%BB%B6%E5%92%8C%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5-6"><span class="toc-number">8.2.3.</span> <span class="toc-text">3. 初始条件和边界情况</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E7%A9%BA%E9%97%B4%E4%BC%98%E5%8C%96%EF%BC%9A-1"><span class="toc-number">8.2.4.</span> <span class="toc-text">4. 空间优化：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86-7"><span class="toc-number">8.3.</span> <span class="toc-text">动态规划组成部分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%A1%AE%E5%AE%9A%E7%8A%B6%E6%80%81%EF%BC%9A-3"><span class="toc-number">8.3.1.</span> <span class="toc-text">1. 确定状态：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B-7"><span class="toc-number">8.3.2.</span> <span class="toc-text">2. 转移方程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%88%9D%E5%A7%8B%E6%9D%A1%E4%BB%B6%E5%92%8C%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5-7"><span class="toc-number">8.3.3.</span> <span class="toc-text">3. 初始条件和边界情况</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
