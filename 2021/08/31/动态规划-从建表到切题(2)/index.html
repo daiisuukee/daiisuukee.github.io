@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>动态规划-从建表到放弃(2) | 黛苏珂の谜之小站</title>
+  <title>动态规划-从建表到切题(2) | 黛苏珂の谜之小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="如题目＞▽＜">
+  <meta name="description" content="本文对序列性动态规划经典例题进行讲解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="动态规划-从建表到放弃(2)">
-<meta property="og:url" content="http://example.com/2021/08/31/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%BB%8E%E5%BB%BA%E8%A1%A8%E5%88%B0%E6%94%BE%E5%BC%83(2)/index.html">
+<meta property="og:title" content="动态规划-从建表到切题(2)">
+<meta property="og:url" content="http://example.com/2021/08/31/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%BB%8E%E5%BB%BA%E8%A1%A8%E5%88%B0%E5%88%87%E9%A2%98(2)/index.html">
 <meta property="og:site_name" content="黛苏珂の谜之小站">
-<meta property="og:description" content="如题目＞▽＜">
+<meta property="og:description" content="本文对序列性动态规划经典例题进行讲解">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/dp1.png">
 <meta property="og:image" content="http://example.com/img/dp2.png">
 <meta property="article:published_time" content="2021-08-31T03:08:19.000Z">
-<meta property="article:modified_time" content="2021-09-01T09:00:01.775Z">
+<meta property="article:modified_time" content="2021-09-08T01:52:47.471Z">
 <meta property="article:author" content="黛苏珂">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -164,19 +164,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-动态规划-从建表到放弃(2)" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-动态规划-从建表到切题(2)" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      动态规划-从建表到放弃(2)
+      动态规划-从建表到切题(2)
     </h1>
   
 
         
-        <a href="/2021/08/31/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%BB%8E%E5%BB%BA%E8%A1%A8%E5%88%B0%E6%94%BE%E5%BC%83(2)/" class="archive-article-date">
+        <a href="/2021/08/31/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%BB%8E%E5%BB%BA%E8%A1%A8%E5%88%B0%E5%88%87%E9%A2%98(2)/" class="archive-article-date">
   	<time datetime="2021-08-31T03:08:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-31</time>
 </a>
         
@@ -184,7 +184,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>如题目＞▽＜</p>
+        <p>本文对序列性动态规划经典例题进行讲解</p>
 <span id="more"></span>
 <h2 id="序列型动态规划-从下标1开始计算"><a href="#序列型动态规划-从下标1开始计算" class="headerlink" title="序列型动态规划(从下标1开始计算)"></a>序列型动态规划(从下标1开始计算)</h2><h3 id="1-题目：房屋染色"><a href="#1-题目：房屋染色" class="headerlink" title="1.题目：房屋染色"></a>1.题目：<a target="_blank" rel="noopener" href="https://www.lintcode.com/problem/515/">房屋染色</a></h3><p>题意：</p>
 <ul>
@@ -199,7 +199,7 @@
 <li>$f[i][1]=min{f[i-1][0]+cost[i-1][1],f[i-1][2]+cost[i-1][1]}$</li>
 <li>$f[i][2]=min{f[i-1][0]+cost[i-1][2],f[i-1][3]+cost[i-1][2]}$<h5 id="3-初始条件和边界情况"><a href="#3-初始条件和边界情况" class="headerlink" title="3. 初始条件和边界情况"></a>3. 初始条件和边界情况</h5></li>
 <li> 初始条件：f[0][0]=f[0][1]=f[0][2]=0 前0个什么都没有</li>
-<li> 无边界情况</li>
+<li> 无边界情况<h5 id="4-程序"><a href="#4-程序" class="headerlink" title="4. 程序"></a>4. <a href="">程序</a></h5></li>
 </ul>
 <hr>
 <h3 id="2-题目：房屋染色2"><a href="#2-题目：房屋染色2" class="headerlink" title="2.题目：房屋染色2"></a>2.题目：<a target="_blank" rel="noopener" href="https://www.lintcode.com/problem/516/">房屋染色2</a></h3><p>题意：</p>
@@ -306,6 +306,11 @@
 <li> 初始条件：无</li>
 <li> 边界情况：<code>a[i]&lt;a[j]ANDi&lt;j</code></li>
 </ul>
+<h2 id="总结（坐标型与序列型动态规划的区分）"><a href="#总结（坐标型与序列型动态规划的区分）" class="headerlink" title="总结（坐标型与序列型动态规划的区分）"></a>总结（坐标型与序列型动态规划的区分）</h2><p>二者可互通</p>
+<ul>
+<li>如果第一项不需要空串向后生成，可以直接写出来dp，那么就可以用坐标型</li>
+<li>如果不是很清楚第0个元素该怎么处理，那么选用序列型比较合适</li>
+</ul>
 
       
 
@@ -406,7 +411,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/08/31/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%BB%8E%E5%BB%BA%E8%A1%A8%E5%88%B0%E6%94%BE%E5%BC%83(2)/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/08/31/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%BB%8E%E5%BB%BA%E8%A1%A8%E5%88%B0%E5%88%87%E9%A2%98(2)/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -430,8 +435,8 @@
     </a>
   
   
-    <a href="/2021/08/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%BB%8E%E5%BB%BA%E8%A1%A8%E5%88%B0%E6%94%BE%E5%BC%83(1)/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">动态规划-从建表到放弃(1)</div>
+    <a href="/2021/08/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%BB%8E%E5%BB%BA%E8%A1%A8%E5%88%B0%E5%88%87%E9%A2%98(1)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">动态规划-从建表到切题(1)</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -458,7 +463,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%9E%8B%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%BB%8E%E4%B8%8B%E6%A0%871%E5%BC%80%E5%A7%8B%E8%AE%A1%E7%AE%97"><span class="toc-number">1.</span> <span class="toc-text">序列型动态规划(从下标1开始计算)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%A2%98%E7%9B%AE%EF%BC%9A%E6%88%BF%E5%B1%8B%E6%9F%93%E8%89%B2"><span class="toc-number">1.1.</span> <span class="toc-text">1.题目：房屋染色</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">动态规划组成部分</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E7%A1%AE%E5%AE%9A%E7%8A%B6%E6%80%81"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">1. 确定状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">2. 转移方程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%88%9D%E5%A7%8B%E6%9D%A1%E4%BB%B6%E5%92%8C%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">3. 初始条件和边界情况</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%A2%98%E7%9B%AE%EF%BC%9A%E6%88%BF%E5%B1%8B%E6%9F%93%E8%89%B22"><span class="toc-number">1.2.</span> <span class="toc-text">2.题目：房屋染色2</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">动态规划组成部分</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E7%A1%AE%E5%AE%9A%E7%8A%B6%E6%80%81-1"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">1. 确定状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B-1"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">2. 转移方程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%88%9D%E5%A7%8B%E6%9D%A1%E4%BB%B6%E5%92%8C%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5-1"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">3. 初始条件和边界情况</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E6%97%B6%E9%97%B4%E4%BC%98%E5%8C%96"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">4.时间优化</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%A2%98%E7%9B%AE%EF%BC%9A%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D"><span class="toc-number">1.3.</span> <span class="toc-text">3.题目：打家劫舍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86-2"><span class="toc-number">1.3.1.</span> <span class="toc-text">动态规划组成部分</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E7%A1%AE%E5%AE%9A%E7%8A%B6%E6%80%81-2"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">1. 确定状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B-2"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">2. 转移方程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%88%9D%E5%A7%8B%E6%9D%A1%E4%BB%B6%E5%92%8C%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5-2"><span class="toc-number">1.3.1.3.</span> <span class="toc-text">3. 初始条件和边界情况</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%A2%98%E7%9B%AE%EF%BC%9A%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D2"><span class="toc-number">1.4.</span> <span class="toc-text">3.题目：打家劫舍2</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%92%8C%E7%AC%AC%E4%B8%80%E9%A2%98%E5%87%A0%E4%B9%8E%E4%B8%80%E8%87%B4%EF%BC%8C%E6%94%B6%E5%B0%BE%E7%9B%B8%E6%8E%A5%E5%A4%84%E5%88%A4%E6%96%AD%E5%A6%82%E4%B8%8B"><span class="toc-number">1.4.1.</span> <span class="toc-text">和第一题几乎一致，收尾相接处判断如下:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%B0%E5%9C%A8%E6%98%AF%E7%82%92%E8%82%A1%E6%97%B6%E9%97%B4%EF%BC%81%EF%BC%81%EF%BC%81"><span class="toc-number">2.</span> <span class="toc-text">现在是炒股时间！！！</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA"><span class="toc-number">2.1.</span> <span class="toc-text">1.买卖股票的最佳时机</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">2.1.1.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA2"><span class="toc-number">2.2.</span> <span class="toc-text">2.买卖股票的最佳时机2</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA3"><span class="toc-number">2.3.</span> <span class="toc-text">3.买卖股票的最佳时机3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86-3"><span class="toc-number">2.3.1.</span> <span class="toc-text">动态规划组成部分</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E7%A1%AE%E5%AE%9A%E7%8A%B6%E6%80%81-3"><span class="toc-number">2.3.1.1.</span> <span class="toc-text">1. 确定状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B-3"><span class="toc-number">2.3.1.2.</span> <span class="toc-text">2. 转移方程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%88%9D%E5%A7%8B%E6%9D%A1%E4%BB%B6%E5%92%8C%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5-3"><span class="toc-number">2.3.1.3.</span> <span class="toc-text">3. 初始条件和边界情况</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA4"><span class="toc-number">2.4.</span> <span class="toc-text">3.买卖股票的最佳时机4</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A"><span class="toc-number">2.4.1.</span> <span class="toc-text">思路：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E9%95%BF%E5%BA%8F%E5%88%97%E5%9E%8B%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="toc-number">3.</span> <span class="toc-text">最长序列型动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%A2%98%E7%9B%AE%EF%BC%9A%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97"><span class="toc-number">3.1.</span> <span class="toc-text">1.题目：最长递增子序列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86-4"><span class="toc-number">3.1.1.</span> <span class="toc-text">动态规划组成部分</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E7%A1%AE%E5%AE%9A%E7%8A%B6%E6%80%81-4"><span class="toc-number">3.1.1.1.</span> <span class="toc-text">1. 确定状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B-4"><span class="toc-number">3.1.1.2.</span> <span class="toc-text">2. 转移方程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%88%9D%E5%A7%8B%E6%9D%A1%E4%BB%B6%E5%92%8C%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5-4"><span class="toc-number">3.1.1.3.</span> <span class="toc-text">3. 初始条件和边界情况</span></a></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%9E%8B%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E4%BB%8E%E4%B8%8B%E6%A0%871%E5%BC%80%E5%A7%8B%E8%AE%A1%E7%AE%97"><span class="toc-number">1.</span> <span class="toc-text">序列型动态规划(从下标1开始计算)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%A2%98%E7%9B%AE%EF%BC%9A%E6%88%BF%E5%B1%8B%E6%9F%93%E8%89%B2"><span class="toc-number">1.1.</span> <span class="toc-text">1.题目：房屋染色</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">动态规划组成部分</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E7%A1%AE%E5%AE%9A%E7%8A%B6%E6%80%81"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">1. 确定状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">2. 转移方程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%88%9D%E5%A7%8B%E6%9D%A1%E4%BB%B6%E5%92%8C%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">3. 初始条件和边界情况</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.1.1.4.</span> <span class="toc-text">4. 程序</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%A2%98%E7%9B%AE%EF%BC%9A%E6%88%BF%E5%B1%8B%E6%9F%93%E8%89%B22"><span class="toc-number">1.2.</span> <span class="toc-text">2.题目：房屋染色2</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">动态规划组成部分</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E7%A1%AE%E5%AE%9A%E7%8A%B6%E6%80%81-1"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">1. 确定状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B-1"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">2. 转移方程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%88%9D%E5%A7%8B%E6%9D%A1%E4%BB%B6%E5%92%8C%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5-1"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">3. 初始条件和边界情况</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E6%97%B6%E9%97%B4%E4%BC%98%E5%8C%96"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">4.时间优化</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%A2%98%E7%9B%AE%EF%BC%9A%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D"><span class="toc-number">1.3.</span> <span class="toc-text">3.题目：打家劫舍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86-2"><span class="toc-number">1.3.1.</span> <span class="toc-text">动态规划组成部分</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E7%A1%AE%E5%AE%9A%E7%8A%B6%E6%80%81-2"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">1. 确定状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B-2"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">2. 转移方程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%88%9D%E5%A7%8B%E6%9D%A1%E4%BB%B6%E5%92%8C%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5-2"><span class="toc-number">1.3.1.3.</span> <span class="toc-text">3. 初始条件和边界情况</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%A2%98%E7%9B%AE%EF%BC%9A%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D2"><span class="toc-number">1.4.</span> <span class="toc-text">3.题目：打家劫舍2</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%92%8C%E7%AC%AC%E4%B8%80%E9%A2%98%E5%87%A0%E4%B9%8E%E4%B8%80%E8%87%B4%EF%BC%8C%E6%94%B6%E5%B0%BE%E7%9B%B8%E6%8E%A5%E5%A4%84%E5%88%A4%E6%96%AD%E5%A6%82%E4%B8%8B"><span class="toc-number">1.4.1.</span> <span class="toc-text">和第一题几乎一致，收尾相接处判断如下:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%B0%E5%9C%A8%E6%98%AF%E7%82%92%E8%82%A1%E6%97%B6%E9%97%B4%EF%BC%81%EF%BC%81%EF%BC%81"><span class="toc-number">2.</span> <span class="toc-text">现在是炒股时间！！！</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA"><span class="toc-number">2.1.</span> <span class="toc-text">1.买卖股票的最佳时机</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">2.1.1.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA2"><span class="toc-number">2.2.</span> <span class="toc-text">2.买卖股票的最佳时机2</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA3"><span class="toc-number">2.3.</span> <span class="toc-text">3.买卖股票的最佳时机3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86-3"><span class="toc-number">2.3.1.</span> <span class="toc-text">动态规划组成部分</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E7%A1%AE%E5%AE%9A%E7%8A%B6%E6%80%81-3"><span class="toc-number">2.3.1.1.</span> <span class="toc-text">1. 确定状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B-3"><span class="toc-number">2.3.1.2.</span> <span class="toc-text">2. 转移方程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%88%9D%E5%A7%8B%E6%9D%A1%E4%BB%B6%E5%92%8C%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5-3"><span class="toc-number">2.3.1.3.</span> <span class="toc-text">3. 初始条件和边界情况</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA4"><span class="toc-number">2.4.</span> <span class="toc-text">3.买卖股票的最佳时机4</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A"><span class="toc-number">2.4.1.</span> <span class="toc-text">思路：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E9%95%BF%E5%BA%8F%E5%88%97%E5%9E%8B%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="toc-number">3.</span> <span class="toc-text">最长序列型动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%A2%98%E7%9B%AE%EF%BC%9A%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97"><span class="toc-number">3.1.</span> <span class="toc-text">1.题目：最长递增子序列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86-4"><span class="toc-number">3.1.1.</span> <span class="toc-text">动态规划组成部分</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E7%A1%AE%E5%AE%9A%E7%8A%B6%E6%80%81-4"><span class="toc-number">3.1.1.1.</span> <span class="toc-text">1. 确定状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B-4"><span class="toc-number">3.1.1.2.</span> <span class="toc-text">2. 转移方程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%88%9D%E5%A7%8B%E6%9D%A1%E4%BB%B6%E5%92%8C%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5-4"><span class="toc-number">3.1.1.3.</span> <span class="toc-text">3. 初始条件和边界情况</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%EF%BC%88%E5%9D%90%E6%A0%87%E5%9E%8B%E4%B8%8E%E5%BA%8F%E5%88%97%E5%9E%8B%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E5%8C%BA%E5%88%86%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">总结（坐标型与序列型动态规划的区分）</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -608,10 +613,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">训练</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
@@ -620,7 +621,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">训练</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">规范</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -629,10 +638,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">环境配置</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">规范</a>
               </li>
              
               <li class="article-tag-list-item">
