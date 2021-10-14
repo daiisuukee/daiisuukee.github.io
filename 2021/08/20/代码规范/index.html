@@ -16,7 +16,7 @@
 <meta property="og:description" content="如题目＞▽＜">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-20T03:08:18.000Z">
-<meta property="article:modified_time" content="2021-10-14T07:50:39.815Z">
+<meta property="article:modified_time" content="2021-10-14T07:52:09.366Z">
 <meta property="article:author" content="黛苏珂">
 <meta property="article:tag" content="规范">
 <meta name="twitter:card" content="summary">
@@ -190,9 +190,9 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> main &#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="括号写在哪"><a href="#括号写在哪" class="headerlink" title="括号写在哪"></a>括号写在哪</h2><p>两种方式</p>
 <ol>
-<li>左括号与上一条代码在一行<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> main &#123;<span class="comment">// java风格 ，golang标准写法</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="number">3</span> &lt; <span class="number">4</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Yes&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>左括号与上一条代码在一行<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> main &#123;<span class="comment">// java风格 ，golang语言标准写法</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="number">3</span> &lt; <span class="number">4</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Yes&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li>左括号与右括号在一列<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> main</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="number">3</span> &lt; <span class="number">4</span>)<span class="comment">// 强迫症狂喜风格</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Yes&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-但千万不要两种风格混着用，别人看的话拳头会硬<br><code>达咩</code><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> main</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="number">3</span> &lt; <span class="number">4</span>) &#123;<span class="comment">//建议拖出去砍了</span></span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Yes&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+但千万不要两种风格混着用，别人看的话拳头会硬<br><code>达咩</code><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> main</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="number">3</span> &lt; <span class="number">4</span>) &#123;<span class="comment">// 建议拖出去砍了</span></span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Yes&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="运算符之间加上空格，逗号后加空格（增加代码可读性）"><a href="#运算符之间加上空格，逗号后加空格（增加代码可读性）" class="headerlink" title="运算符之间加上空格，逗号后加空格（增加代码可读性）"></a>运算符之间加上空格，逗号后加空格（增加代码可读性）</h2><code>达咩</code><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">114</span>,b=<span class="number">514</span>;</span><br><span class="line">cout&lt;&lt;<span class="number">114</span>+<span class="number">514</span>;</span><br></pre></td></tr></table></figure>
 <code>that&#39;s ♂ good</code><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">114</span>, b = <span class="number">514</span>;</span><br><span class="line">cout &lt;&lt; <span class="number">114</span> + <span class="number">514</span>;</span><br></pre></td></tr></table></figure>
 <h1 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h1><h2 id="常用命名用英文单词缩写"><a href="#常用命名用英文单词缩写" class="headerlink" title="常用命名用英文单词缩写"></a><del>常用</del>命名用英文单词缩写</h2></li>
@@ -555,7 +555,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -563,11 +563,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模板</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -646,7 +646,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">无他&lt;br&gt;&lt;br&gt;我只是条咸鱼而已&lt;br&gt;就这样</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">20级的菜鸡，一条咸鱼，圈子小，由于天赐の礼物——脸盲，不认识几个人，只要你主动一点点我们就有故事⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄。</div>
   	  	
     	</section>
     
