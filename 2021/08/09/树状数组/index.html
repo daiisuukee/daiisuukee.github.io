@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://example.com/img/shu1.png">
 <meta property="og:image" content="http://example.com/img/shu2.png">
 <meta property="article:published_time" content="2021-08-09T08:03:22.000Z">
-<meta property="article:modified_time" content="2021-08-09T13:00:59.768Z">
+<meta property="article:modified_time" content="2022-03-01T08:36:49.550Z">
 <meta property="article:author" content="黛苏珂">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
@@ -186,10 +186,10 @@
       
         <p>如题目＞▽＜</p>
 <span id="more"></span>
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>树状数组（Binary Index Tree, BIT），是一种简介好用的数据结构，最简单的树状数组支持两种操作</p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>树状数组（Binary Index Tree, BIT），是一种简洁好用的数据结构，最简单的树状数组支持两种操作</p>
 <ul>
 <li><strong>单点修改</strong>：更改数组中某一个元素的值</li>
-<li><strong>区间查询</strong>：查询一个区间内所有元素的和<h2 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h2>可以解决大部分基于区间上的更新与求和问题<h2 id="与线段树的区别"><a href="#与线段树的区别" class="headerlink" title="与线段树的区别"></a>与线段树的区别</h2>线段树是一个正经的二叉树，而树状数组会删去一定量的右枝，如果只用于区间求和，使用树状数组（代码段，少占空间）。如果在区间基础上实现更多的功能，则需要使用线段树<h1 id="BIT的引入"><a href="#BIT的引入" class="headerlink" title="BIT的引入"></a>BIT的引入</h1>对于普通数组，我们可以在$O(1)$的时间复杂度下修改元素，但区间求和则需要$O(n)$的复杂度</li>
+<li><strong>区间查询</strong>：查询一个区间内所有元素的和<h2 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h2>可以解决大部分基于区间上的更新与求和问题<h2 id="与线段树的区别"><a href="#与线段树的区别" class="headerlink" title="与线段树的区别"></a>与线段树的区别</h2>线段树是一个正经的二叉树，而树状数组会删去一定量的右枝，如果只用于区间求和，使用树状数组（代码短，少占空间）。如果在区间基础上实现更多的功能，则需要使用线段树<h1 id="BIT的引入"><a href="#BIT的引入" class="headerlink" title="BIT的引入"></a>BIT的引入</h1>对于普通数组，我们可以在$O(1)$的时间复杂度下修改元素，但区间求和则需要$O(n)$的复杂度</li>
 </ul>
 <p>而对于前缀和数组，我们虽然可以在$O(1)$的时间复杂度下求区间长度，但由于修改元素会影响前缀和数组后面的元素，因此时间复杂度为$O(n)$</p>
 <p>为了保证这两种操作的时间复杂度能均衡一点，我们便可以将数组分成若干个小区间进行维护，因此我们引入了BIT</p>
@@ -562,15 +562,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">抓包</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Termux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">环境配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">抓包</a>
               </li>
              
               <li class="article-tag-list-item">
