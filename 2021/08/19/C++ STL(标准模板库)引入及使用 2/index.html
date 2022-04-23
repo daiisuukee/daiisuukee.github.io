@@ -16,11 +16,11 @@
 <meta property="og:description" content="如题目＞▽＜">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-19T04:06:34.000Z">
-<meta property="article:modified_time" content="2021-08-30T03:22:49.881Z">
+<meta property="article:modified_time" content="2022-04-14T12:54:40.998Z">
 <meta property="article:author" content="黛苏珂">
+<meta property="article:tag" content="算法">
 <meta property="article:tag" content="c++">
 <meta property="article:tag" content="数据结构">
-<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="黛苏珂の谜之小站" type="application/atom+xml">
@@ -70,7 +70,7 @@
 		</nav>
 		
 		<nav>
-		总文章数 30
+		总文章数 33
 		</nav>
 		
 		<nav class="header-smart-menu">
@@ -191,7 +191,7 @@
         <p>如题目＞▽＜</p>
 <span id="more"></span>
 <h1 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h1><hr>
-<h2 id="向量-vector-查找-find-–-gt-查不到返回-set-end"><a href="#向量-vector-查找-find-–-gt-查不到返回-set-end" class="headerlink" title="向量 vector// 查找 find()–&gt;查不到返回_set.end()"></a>向量 vector// 查找 find()–&gt;查不到返回_set.end()</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cout</span>&lt;&lt;*_set.find(<span class="number">100</span>)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="comment">// 二分查找，直接键入目标值</span></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;*_set.lower_bound(<span class="number">3</span>)&lt;&lt;e ndl;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;*_set.upper_bound(<span class="number">3</span>)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;arr1(<span class="number">10000</span>, <span class="number">0x3f3f3f3f</span>);<span class="comment">//第一个是大小，第二个是初始值</span></span><br></pre></td></tr></table></figure>
+<h2 id="向量-vector-查找-find-–-gt-查不到返回-set-end"><a href="#向量-vector-查找-find-–-gt-查不到返回-set-end" class="headerlink" title="向量 vector// 查找 find()–&gt;查不到返回_set.end()"></a>向量 vector// 查找 find()–&gt;查不到返回_set.end()</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cout&lt;&lt;*_set.<span class="built_in">find</span>(<span class="number">100</span>)&lt;&lt;endl;</span><br><span class="line"><span class="comment">// 二分查找，直接键入目标值</span></span><br><span class="line">cout&lt;&lt;*_set.<span class="built_in">lower_bound</span>(<span class="number">3</span>)&lt;&lt;e ndl;</span><br><span class="line">cout&lt;&lt;*_set.<span class="built_in">upper_bound</span>(<span class="number">3</span>)&lt;&lt;endl;</span><br><span class="line">vector&lt;<span class="keyword">int</span>&gt;<span class="built_in">arr1</span>(<span class="number">10000</span>, <span class="number">0x3f3f3f3f</span>);<span class="comment">//第一个是大小，第二个是初始值</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>传入值</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr.<span class="built_in">push_back</span>(<span class="number">1</span>);</span><br><span class="line">arr.<span class="built_in">emplace_back</span>(<span class="number">1</span>);<span class="comment">//推荐，这个是按引用传递，能快一点</span></span><br><span class="line">arr[<span class="number">3</span>]=<span class="number">1</span>;<span class="comment">//直接更改</span></span><br></pre></td></tr></table></figure></li>
@@ -227,7 +227,7 @@
 <li><p>每个key(键)只能出现一次，不允许重复。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//前两个是类型，后面的是比较方式</span></span><br><span class="line">map&lt;string,<span class="keyword">int</span>,comp&gt;mp;</span><br><span class="line"><span class="comment">// insert(k,v) --&gt;pair&lt;key,value&gt;  --&gt;p.first p.second</span></span><br><span class="line">mp.<span class="built_in">insert</span>(&#123;<span class="string">&quot;daisuke&quot;</span>,<span class="number">520</span>&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用重载的[]输出，或者迭代器输出</span></span><br><span class="line">cout&lt;&lt;mp[<span class="string">&quot;daisuke&quot;</span>]&lt;&lt;endl;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> p:mp)</span><br><span class="line">    cout&lt;&lt;p.first&lt;&lt;<span class="string">&quot;:&quot;</span>&lt;&lt;p.second&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查找 find()--&gt;查不到返回_set.end()</span></span><br><span class="line">cout&lt;&lt;mp.<span class="built_in">find</span>(<span class="number">100</span>)-&gt;second&lt;&lt;endl;</span><br><span class="line"><span class="comment">// 二分查找，直接键入目标值</span></span><br><span class="line">cout&lt;&lt;mp.<span class="built_in">lower_bound</span>(<span class="number">3</span>)-&gt;second&lt;&lt;endl;</span><br><span class="line">cout&lt;&lt;mp.<span class="built_in">upper_bound</span>(<span class="number">3</span>)-&gt;second&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line"><span class="comment">//排序方式，先看长度，再看字典序</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">comp</span>&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="keyword">const</span> string&amp;a,<span class="keyword">const</span> string&amp;b)</span><span class="keyword">const</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> la=a.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">int</span> lb=b.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">return</span> la!=lb?la&lt;lb:a&lt;b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 键值是否出现过(这个复杂度还不如直接用lower_bound)</span></span><br><span class="line"><span class="built_in">puts</span>(mp.<span class="built_in">count</span>(<span class="string">&quot;daisuke&quot;</span>)?<span class="string">&quot;Yes&quot;</span>:<span class="string">&quot;No&quot;</span>);</span><br></pre></td></tr></table></figure>
 <h2 id="无序哈希表-unordered-x"><a href="#无序哈希表-unordered-x" class="headerlink" title="无序哈希表 unordered_x"></a>无序哈希表 unordered_x</h2><p>优点：查询速度很快<br>缺点：哈希表建立比较耗费时间<br>适用：查找较多时</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2></li>
+</li>
 </ul>
 
       
@@ -273,15 +273,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
@@ -389,7 +389,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">容器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%91%E9%87%8F-vector-%E6%9F%A5%E6%89%BE-find-%E2%80%93-gt-%E6%9F%A5%E4%B8%8D%E5%88%B0%E8%BF%94%E5%9B%9E-set-end"><span class="toc-number">1.1.</span> <span class="toc-text">向量 vector&#x2F;&#x2F; 查找 find()–&gt;查不到返回_set.end()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%88-%E9%98%9F%E5%88%97-%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97-stack-queue-deque"><span class="toc-number">1.2.</span> <span class="toc-text">栈 队列 双端队列 stack queue deque</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%88%EF%BC%88%E5%BB%BA%E8%AE%AE%E6%89%8B%E5%86%99%EF%BC%8C%E5%AE%B9%E6%98%93%E8%A2%AB%E5%8D%A1%EF%BC%89"><span class="toc-number">1.2.1.</span> <span class="toc-text">栈（建议手写，容易被卡）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%9F%E5%88%97"><span class="toc-number">1.2.2.</span> <span class="toc-text">队列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97%EF%BC%88%E5%8F%AF%E4%BB%A5O-1-%E6%93%8D%E4%BD%9C%E9%98%9F%E9%A6%96%E7%9A%84vector%EF%BC%89"><span class="toc-number">1.2.3.</span> <span class="toc-text">双端队列（可以O(1)操作队首的vector）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E5%90%88-Set"><span class="toc-number">1.3.</span> <span class="toc-text">集合 Set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%A0%E5%B0%84-Map"><span class="toc-number">1.4.</span> <span class="toc-text">映射 Map</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E5%BA%8F%E5%93%88%E5%B8%8C%E8%A1%A8-unordered-x"><span class="toc-number">1.5.</span> <span class="toc-text">无序哈希表 unordered_x</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.6.</span> <span class="toc-text"></span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">容器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%91%E9%87%8F-vector-%E6%9F%A5%E6%89%BE-find-%E2%80%93-gt-%E6%9F%A5%E4%B8%8D%E5%88%B0%E8%BF%94%E5%9B%9E-set-end"><span class="toc-number">1.1.</span> <span class="toc-text">向量 vector&#x2F;&#x2F; 查找 find()–&gt;查不到返回_set.end()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%88-%E9%98%9F%E5%88%97-%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97-stack-queue-deque"><span class="toc-number">1.2.</span> <span class="toc-text">栈 队列 双端队列 stack queue deque</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%88%EF%BC%88%E5%BB%BA%E8%AE%AE%E6%89%8B%E5%86%99%EF%BC%8C%E5%AE%B9%E6%98%93%E8%A2%AB%E5%8D%A1%EF%BC%89"><span class="toc-number">1.2.1.</span> <span class="toc-text">栈（建议手写，容易被卡）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%9F%E5%88%97"><span class="toc-number">1.2.2.</span> <span class="toc-text">队列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97%EF%BC%88%E5%8F%AF%E4%BB%A5O-1-%E6%93%8D%E4%BD%9C%E9%98%9F%E9%A6%96%E7%9A%84vector%EF%BC%89"><span class="toc-number">1.2.3.</span> <span class="toc-text">双端队列（可以O(1)操作队首的vector）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E5%90%88-Set"><span class="toc-number">1.3.</span> <span class="toc-text">集合 Set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%A0%E5%B0%84-Map"><span class="toc-number">1.4.</span> <span class="toc-text">映射 Map</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E5%BA%8F%E5%93%88%E5%B8%8C%E8%A1%A8-unordered-x"><span class="toc-number">1.5.</span> <span class="toc-text">无序哈希表 unordered_x</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -544,15 +544,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -580,15 +580,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">抓包</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">规范</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">抓包</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -597,6 +593,18 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">环境配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">规范</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">软件工程基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">设计</a>
               </li>
              
               <li class="article-tag-list-item">
