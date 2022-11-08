@@ -8,19 +8,39 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>操作系统3 | 黛苏珂の谜之小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="如题目＞▽＜">
+  <meta name="description" content="内存相关">
 <meta property="og:type" content="article">
 <meta property="og:title" content="操作系统3">
 <meta property="og:url" content="http://example.com/2022/10/08/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F3/index.html">
 <meta property="og:site_name" content="黛苏珂の谜之小站">
-<meta property="og:description" content="如题目＞▽＜">
+<meta property="og:description" content="内存相关">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://c2.im5i.com/2022/11/08/XZ4s4.png">
+<meta property="og:image" content="https://c2.im5i.com/2022/11/08/XZpIW.png">
+<meta property="og:image" content="https://c2.im5i.com/2022/11/08/XZM1G.png">
+<meta property="og:image" content="https://c2.im5i.com/2022/11/08/XZOlz.png">
+<meta property="og:image" content="https://c2.im5i.com/2022/11/08/XZk95.png">
+<meta property="og:image" content="https://c2.im5i.com/2022/11/08/Xi146.png">
+<meta property="og:image" content="https://c2.im5i.com/2022/11/08/XiQG8.png">
+<meta property="og:image" content="https://c2.im5i.com/2022/11/08/XihHU.png">
+<meta property="og:image" content="https://c2.im5i.com/2022/11/08/XiwLw.png">
+<meta property="og:image" content="https://c2.im5i.com/2022/11/08/XivEJ.png">
+<meta property="og:image" content="https://c2.im5i.com/2022/11/08/XiS1n.png">
+<meta property="og:image" content="https://c2.im5i.com/2022/11/08/Xigrl.png">
+<meta property="og:image" content="https://c2.im5i.com/2022/11/08/XiG97.png">
+<meta property="og:image" content="https://c2.im5i.com/2022/11/08/XiK42.png">
+<meta property="og:image" content="https://c2.im5i.com/2022/11/08/XiVKP.png">
+<meta property="og:image" content="https://c2.im5i.com/2022/11/08/XidHD.png">
+<meta property="og:image" content="https://c2.im5i.com/2022/11/08/XifLj.png">
+<meta property="og:image" content="https://c2.im5i.com/2022/11/08/XirvS.png">
+<meta property="og:image" content="https://c2.im5i.com/2022/11/08/XiyEL.png">
 <meta property="article:published_time" content="2022-10-08T10:54:57.000Z">
-<meta property="article:modified_time" content="2022-10-08T10:55:36.566Z">
+<meta property="article:modified_time" content="2022-11-08T12:28:46.015Z">
 <meta property="article:author" content="黛苏珂">
 <meta property="article:tag" content="操作系统">
 <meta property="article:tag" content="课程">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://c2.im5i.com/2022/11/08/XZ4s4.png">
   
     <link rel="alternative" href="/atom.xml" title="黛苏珂の谜之小站" type="application/atom+xml">
   
@@ -187,9 +207,185 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>如题目＞▽＜</p>
+        <p>内存相关</p>
 <span id="more"></span>
 <hr>
+<h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><p><code>地址</code>：4G内存空间有4*（2^30）个字节，也就是2^32个字节，要表示全部的字节就需要32位的二进制地址，也就是现在的32位操作系统的由来。但4G以上打的内存无法满足这个需求，所以现在主流是64位操作系统，能表示2^64个字节，最高4,294,967,296G的内存空间。</p>
+<h3 id="程序装入内存"><a href="#程序装入内存" class="headerlink" title="程序装入内存"></a>程序装入内存</h3><blockquote>
+<p>可执行文件需要放在内存中才可以运行，程序中的指令是逻辑地址，而内存中的地址是物理地址。如何将逻辑地址转为物理地址？</p>
+</blockquote>
+<h4 id="绝对装入"><a href="#绝对装入" class="headerlink" title="绝对装入"></a>绝对装入</h4><p>假如0-100的地址已经被占用，系统知道装入模块要从地址为100 的地方开始存放，编译时就将指令的绝对地址载入了可执行文件，即<br><img src="https://c2.im5i.com/2022/11/08/XZ4s4.png" alt="XZ4s4.png"></p>
+<h4 id="静态重定位"><a href="#静态重定位" class="headerlink" title="静态重定位"></a>静态重定位</h4><p>编译、链接后的装入模块的地址都是从0开始的，即可执行文件指令地址不变，在装入内存时，逻辑地址全部+100，装入内存中。所以作业一旦装入就没办法再更改、申请内存空间。</p>
+<h4 id="动态重定位"><a href="#动态重定位" class="headerlink" title="动态重定位"></a>动态重定位</h4><p>又称动态运行时装入。编译、链接后的装入模块的地址都是从0开始的。装入程序把装入模块装入内存后，并不会立即把逻辑地址转换为物理地址，而是把地址转换推迟到<strong>程序真正要执行时才进</strong>行。</p>
+<p><strong>这种方式需要一个重定位寄存器的支持</strong>，寄存器记录了进程的起始物理地址地址即100，在程序运行时，会动态的将指令中的逻辑地址增加上初始地址。</p>
+<p><img src="https://c2.im5i.com/2022/11/08/XZpIW.png" alt="XZpIW.png"></p>
+<h3 id="链接方式"><a href="#链接方式" class="headerlink" title="链接方式"></a>链接方式</h3><h4 id="静态链接"><a href="#静态链接" class="headerlink" title="静态链接"></a>静态链接</h4><blockquote>
+<p>在程序运行之前，先将各目标模块及它们所需的库函数连接成一个完整的可执行文件（装入模块），之后不再拆开。</p>
+</blockquote>
+<p><img src="https://c2.im5i.com/2022/11/08/XZM1G.png" alt="XZM1G.png"></p>
+<h4 id="装入时动态链接"><a href="#装入时动态链接" class="headerlink" title="装入时动态链接"></a>装入时动态链接</h4><blockquote>
+<p>装入时动态链接：将各目标模块装入内存时，边装入边链接的链接方式。</p>
+</blockquote>
+<p><img src="https://c2.im5i.com/2022/11/08/XZOlz.png" alt="XZOlz.png"></p>
+<h4 id="运行时动态链接"><a href="#运行时动态链接" class="headerlink" title="运行时动态链接"></a>运行时动态链接</h4><blockquote>
+<p>在程序执行中需要该目标模块时，才对它进行链接。其优点是物理地址便于修改和更新，便于实现对目标模块的共享。</p>
+</blockquote>
+<p><img src="https://c2.im5i.com/2022/11/08/XZk95.png" alt="XZk95.png"></p>
+<h3 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h3><p>操作系统需要负责内存空间的分配与回收、内存空间扩充、地址转换、内存保护</p>
+<ol>
+<li>分配与回收</li>
+</ol>
+<p>分配将在下一节进行详细讲解，回收即对内存中的进程进行撤销、挂起等操作。</p>
+<ol>
+<li>扩充</li>
+</ol>
+<p>涉及到后面的虚拟内存技术，这也十分常见，比方说我们5G的程序如何运行在2G的内存上，这就需要扩充。</p>
+<ol start="3">
+<li>地址转换</li>
+</ol>
+<p>在装入内存中有讲</p>
+<ol start="4">
+<li>内存保护</li>
+</ol>
+<p>简单来说就是操作系统保护已经在内存上的进程不被干扰。一种方式是设置上下限寄存器存放进程上下界，如100-179被占用，其他进程不可使用这里的内存。另外一种方式是重定位寄存器与界地址寄存器，如下图</p>
+<p><img src="https://c2.im5i.com/2022/11/08/Xi146.png" alt="Xi146.png"></p>
+<p>通过逻辑判断是否能进行内存访问的操作。</p>
+<h3 id="覆盖与交换"><a href="#覆盖与交换" class="headerlink" title="覆盖与交换"></a>覆盖与交换</h3><p>技术产生的原因：程序所需的运行空间大于实际内存大小，需要让内存发挥出更大的作用。</p>
+<ol>
+<li><strong>覆盖技术</strong>：按照逻辑，将不可能同时被访问的程序段共享一个覆盖区</li>
+</ol>
+<p><img src="https://c2.im5i.com/2022/11/08/XiQG8.png" alt="XiQG8.png"></p>
+<ol start="2">
+<li><strong>交换技术</strong>:内存紧张时，将部分进程暂时挂起(放置到外村)，将外村已具备运行条件的进程换入内存。</li>
+</ol>
+<h3 id="连续分配管理方式"><a href="#连续分配管理方式" class="headerlink" title="连续分配管理方式"></a>连续分配管理方式</h3><p>连续分配：指的是为用户进程分配的必须是一个<strong>连续的内存空间</strong></p>
+<ol>
+<li><strong>单一连续分配</strong>：用于早期操作系统，内存被划分为系统区和用户区，内存只能有一道用户程序，局限性不言而喻。</li>
+</ol>
+<p>会产生内部碎片：分配给某进程的内存区域中，如果有些部分没有使用，就是“内部碎片”</p>
+<ol start="2">
+<li><strong>固定分区分配</strong>：整个用户空间划分为若干个固定大小的分区，在每个分区中只装入一道作业。</li>
+</ol>
+<p><img src="https://c2.im5i.com/2022/11/08/XihHU.png" alt="XihHU.png"></p>
+<ol start="3">
+<li><strong>动态分区分配</strong>:不会预先划分内存分区，而是在进程装入内存时，根据进程的大小动态地建立分区。</li>
+</ol>
+<p><img src="https://c2.im5i.com/2022/11/08/XiwLw.png" alt="XiwLw.png"></p>
+<p>但是这种分配方式会产生<strong>外部碎片</strong>。外部碎片，指的是内存中某些由于过小而难以利用的空闲分区</p>
+<h3 id="动态分区分配算法"><a href="#动态分区分配算法" class="headerlink" title="动态分区分配算法"></a>动态分区分配算法</h3><ul>
+<li>首次适应算法</li>
+</ul>
+<blockquote>
+<p>每次都从低地址开始查找，找到第一个能满足大小的空闲分区</p>
+</blockquote>
+<ul>
+<li>最佳适应算法</li>
+</ul>
+<blockquote>
+<p>为了保证“大进程”到来时能有连续的大片空间，尽可能留下大片的空闲区，即优先使用更小的空闲区。</p>
+</blockquote>
+<ul>
+<li>最坏适应算法</li>
+</ul>
+<blockquote>
+<p>为了解决最佳适应法的问题——留下太多难以利用的小碎片，每次分配优先使用最大的连续空闲区，这样分配后的剩余空闲区就不会太小。</p>
+</blockquote>
+<ul>
+<li>邻近适应算法</li>
+</ul>
+<blockquote>
+<p>首次适应算法每次都从低地址开始查找，这有可能导致低地址出现很多小的空闲分区，而每次分配查找时都要经过这些分区，增加了查找的开销。若果每次都从上次查找结束的位置开始检索，就可解决上述问题。</p>
+</blockquote>
+<p><strong>总结</strong></p>
+<p><img src="https://c2.im5i.com/2022/11/08/XivEJ.png" alt="XivEJ.png"></p>
+<h3 id="基本分页存储管理"><a href="#基本分页存储管理" class="headerlink" title="基本分页存储管理"></a>基本分页存储管理</h3><p>在上述算法中总是存在各种问题，在实际操作中，分页可以解决内存分区导致的效率、碎片问题。</p>
+<p><img src="https://c2.im5i.com/2022/11/08/XiS1n.png" alt="XiS1n.png"></p>
+<p><code>页框</code>: 每个分区就是一个“页框”（页框=页帧=内存块=物理块=物理页面）</p>
+<p><code>页面</code>:将进程的逻辑地址空间也分为与页框大小相等的一个个部分，每个部分称为一个“页”或“页面”</p>
+<blockquote>
+<p>页框不能太大，否则可能产生过大的内部碎片导致浪费。</p>
+</blockquote>
+<p>页框和页面总是记混，技巧其实很简单只要记住<strong>页面放在页框</strong>中，就再也不会记混了。</p>
+<p><code>页表</code>:操作系统要为每个进程建立一张页表。页表通常存在PCB,这里概念不清的话可能会有疑惑为什么PCB中会有页表，实际上PCB中不光存放进程，还存放着进程信息、PID、IO情况等多个内容。</p>
+<p>页表记录进程页面和实际存放的内存块之间的映射关系</p>
+<p><img src="https://c2.im5i.com/2022/11/08/Xigrl.png" alt="Xigrl.png"></p>
+<p>页表项所占字节：假设某系统物理内存大小为4GB，页面大小为4KB，则有2^32 / 2^12 = 2^20 个内存块，那么每一个块号就需要20bit,至少3字节来表示。由于页号是隐含的，因此每个页表项占3B。</p>
+<p>同样的，有进程和内存，就有地址转换的问题进程的页号是<strong>逻辑地址</strong>，内存的页框号是<strong>物理地址</strong>，中间需要计算页内偏移量。</p>
+<ul>
+<li><p>页号= 逻辑地址/ 页面长度（取除法的整数部分）</p>
+</li>
+<li><p>页内偏移量= 逻辑地址% 页面长度（取除法的余数部分）</p>
+</li>
+</ul>
+<blockquote>
+<p>逻辑地址A 对应的物理地址= P号页面在内存中的起始地址+页内偏移量W</p>
+</blockquote>
+<h3 id="具有快表的地址变换机构"><a href="#具有快表的地址变换机构" class="headerlink" title="具有快表的地址变换机构"></a>具有快表的地址变换机构</h3><p><code>快表TLB</code>：又称联想寄存器，是访问速度比内存快很多的高速缓存。</p>
+<p>快表为什么速度快：直接从快表中取出该页对应的内存块号，再将内存块号与页内偏移量拼接形成物理地址最后，访问该物理地址对应的内存单元。因此，若快表命中，则访问某个逻辑地址仅需一次访存即可。</p>
+<p>慢表则要在多级页表中找到对应的页表，再从相应的页号中取出内存块号。</p>
+<p><code>就像看一本书，快表放了书签，而慢表则要慢慢找上次看到了哪</code></p>
+<blockquote>
+<p>局部性原理：<br>时间局部性：如果执行了程序中的某条指令，那么不久后这条指令很有可能再次执行；如果某个数据被访问过，不久之后该数据很可能再次被访问。（因为程序中存在大量的循环）<br>空间局部性：一旦程序访问了某个存储单元，在不久之后，其附近的存储单元也很有可能被访问。（因为很多数据在内存中都是连续存放的）</p>
+</blockquote>
+<p><img src="https://c2.im5i.com/2022/11/08/XiG97.png" alt="XiG97.png"></p>
+<h3 id="两级页表"><a href="#两级页表" class="headerlink" title="两级页表"></a>两级页表</h3><p>为什么要有两级页表</p>
+<blockquote>
+<p>根据局部性原理，进程某个时间段内只需要访问几个页面就可以正常运行了，没必要让整个页面都在内存中常驻。同时，过大的页表还会占用很多页框，也就是内存空间。</p>
+</blockquote>
+<p><img src="https://c2.im5i.com/2022/11/08/XiK42.png" alt="XiK42.png"></p>
+<p>当页表被分为多个页表，在内存中只需要放入有需求的页表，从而提高效率，节省空间。</p>
+<h3 id="基本分段管理"><a href="#基本分段管理" class="headerlink" title="基本分段管理"></a>基本分段管理</h3><blockquote>
+<p>分段管理：以段为单位进行分配，每个段在内存中占据连续空间，各段之间可以不相邻。大体上与分页类似，与“分页”最大的区别就是——离散分配时所分配地址空间的基本单位不同。</p>
+</blockquote>
+<h3 id="虚拟内存"><a href="#虚拟内存" class="headerlink" title="虚拟内存"></a>虚拟内存</h3><p>在真实的操作系统中，通常采用段页式存储管理，段面向用户，页面向硬件</p>
+<p><img src="https://c2.im5i.com/2022/11/08/XiVKP.png" alt="XiVKP.png"></p>
+<p>虚拟内存解决的问题：</p>
+<ul>
+<li><p>一次性：作业必须一次性全部装入内存后才能开始运行。这会造成两个问题：</p>
+<ul>
+<li>作业很大时，不能全部装入内存，导致<strong>大作业无法运行</strong>；</li>
+<li>当大量作业要求运行时，<strong>由于内存无法容纳所有作业</strong>，因此只有少量作业能运行，导致多道程序并发度下降。</li>
+</ul>
+</li>
+<li><p>驻留性：一旦作业被装入内存，就会一直驻留在内存中，直至作业运行结束。事实上，在一个时间段内，只需要访问作业的一小部分数据即可正常运行，这就导致了内存中会驻留大量的、暂时用不到的数据，<strong>浪费了宝贵的内存资源</strong>。</p>
+</li>
+</ul>
+<p>虚拟内存的实现：</p>
+<ul>
+<li><p>基于局部性原理，在程序装入时，可以将程序中很快会用到的部分装入内存，暂时用不到的部分<strong>留在外存</strong>，就可以让程序开始执行。</p>
+</li>
+<li><p>在程序执行过程中，当所访问的信息不在内存时，由操作系统负责将所需信息从<strong>外存调入内存</strong>，然后继续执行程序。</p>
+</li>
+<li><p>若内存空间不够，由操作系统负责将内存中暂时用不到的信息换出到外存。在操作系统的管理下，在用户看来似乎有一个比实际内存大得多的内存，这就是<strong>虚拟内存</strong>。</p>
+</li>
+</ul>
+<h3 id="请求分页管理"><a href="#请求分页管理" class="headerlink" title="请求分页管理"></a>请求分页管理</h3><blockquote>
+<p>在程序执行过程中，当所访问的信息不在内存时，由操作系统负责将所需信息从外存调入内存，然后继续执行程序。若内存空间不够，由操作系统负责将内存中暂时用不到的信息换出到外存</p>
+</blockquote>
+<p><code>缺页中断</code>： 在请求分页系统中，每当要访问的页面不在内存时，便产生一个缺页中断，然后由操作系统的缺页中断处理程序处理中断。</p>
+<p>缺页的进程阻塞，放入阻塞队列，调页完成后再将其唤醒，放回就绪队列。如果内存中有空闲块，则为进程分配一个空闲块，将所缺页面装入该块，并修改页表中相应的页表项。如果内存中没有空闲块，则由<strong>页面置换算法</strong>选择一个页面淘汰，同时要注意，若某个页面被换出外存，则<strong>快表</strong>中的相应表项也要删除，否则可能访问错误的页面</p>
+<p><strong>理解缺页</strong>，缺页就像货架上缺少了商品，需要从仓库里调取商品，就先暂停这个货架的销售，等商品调取完毕再重新出售。</p>
+<h3 id="页面置换算法"><a href="#页面置换算法" class="headerlink" title="页面置换算法"></a>页面置换算法</h3><p>置换算法的评价指标是：缺页的次数，某种算法让缺页次数最低，调度效率最高，那就是最优的算法</p>
+<ul>
+<li>最佳置换算法<br>每次淘汰的页面都是以后永久不用或最长时间不使用的页面，保证最低的缺页率。显然，<strong>这种需要预测未来的算法不可能实现</strong>。</li>
+</ul>
+<p><img src="https://c2.im5i.com/2022/11/08/XidHD.png" alt="XidHD.png"></p>
+<ul>
+<li>先进先出算法FIFO<br>缺页时，淘汰最早进入的页面。算法简单，但局限性也明显，例如某些经常使用的页面一直被换进换出，和使用频率低的页面有相同的被换出的机会。</li>
+</ul>
+<p><img src="https://c2.im5i.com/2022/11/08/XifLj.png" alt="XifLj.png"></p>
+<ul>
+<li>最近最久未使用置换算法LRU<br>每次淘汰的页面都是最近最久未使用的页面。需要在页面中添加一个记录项，记录上次被访问以来经历的时间t，当需要淘汰页面时，选择时间t最大的淘汰，也就是最久未使用的淘汰。算法设计虽好，但开销很大，实现困难。</li>
+</ul>
+<p><img src="https://c2.im5i.com/2022/11/08/XirvS.png" alt="XirvS.png"></p>
+<ul>
+<li>时钟置换算法<br>时钟置换算法也可以称为最近未使用算法。是一种性能和开销均衡的算法。</li>
+</ul>
+<p>简单的时钟算法实现方法:为每个页面设置一个访问位，再将内存中的页面都通过链接指针链接成一个循环队列。当某页被访问时，其访问位置为1。当需要淘汰一个页面时，只需检查页的访问位。如果是0，就选择该页换出;如果是1，则将它置为0，暂不换出，继续检查下一个页面，若第一轮扫描中所有页面都是1，则将这些页面的访问位依次置为0后，再进行第二轮扫描（第二轮扫描中一定会有访问位为0的页面，因此简单的CLOCK算法选择一个淘汰页面最多会经过两轮扫描)</p>
+<p><img src="https://c2.im5i.com/2022/11/08/XiyEL.png" alt="XiyEL.png"></p>
+<blockquote>
+<p>问题：缺页很少，访问位都是一，那么扫描了一轮进行第二次扫描，就相当于FIFO算法，为了改进这种情况，提出了下面的算法。<br>改进版的时钟算法(有很多改进方式，这里只是一种)：如果把页面看成钟表，原来的慢指针相当于时针，现在添加一个快指针，相当于分针，分针扫描要比时针快，如果一个页面在一定时间限制内没有访问，就设访问位为0，缺页时直接换出。</p>
+</blockquote>
 
       
 
@@ -337,7 +533,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AD%98"><span class="toc-number">1.</span> <span class="toc-text">内存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E8%A3%85%E5%85%A5%E5%86%85%E5%AD%98"><span class="toc-number">1.1.</span> <span class="toc-text">程序装入内存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%9D%E5%AF%B9%E8%A3%85%E5%85%A5"><span class="toc-number">1.1.1.</span> <span class="toc-text">绝对装入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E9%87%8D%E5%AE%9A%E4%BD%8D"><span class="toc-number">1.1.2.</span> <span class="toc-text">静态重定位</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E9%87%8D%E5%AE%9A%E4%BD%8D"><span class="toc-number">1.1.3.</span> <span class="toc-text">动态重定位</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E6%8E%A5%E6%96%B9%E5%BC%8F"><span class="toc-number">1.2.</span> <span class="toc-text">链接方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5"><span class="toc-number">1.2.1.</span> <span class="toc-text">静态链接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A3%85%E5%85%A5%E6%97%B6%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5"><span class="toc-number">1.2.2.</span> <span class="toc-text">装入时动态链接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5"><span class="toc-number">1.2.3.</span> <span class="toc-text">运行时动态链接</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-number">1.3.</span> <span class="toc-text">内存管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A6%86%E7%9B%96%E4%B8%8E%E4%BA%A4%E6%8D%A2"><span class="toc-number">1.4.</span> <span class="toc-text">覆盖与交换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F"><span class="toc-number">1.5.</span> <span class="toc-text">连续分配管理方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%88%86%E5%8C%BA%E5%88%86%E9%85%8D%E7%AE%97%E6%B3%95"><span class="toc-number">1.6.</span> <span class="toc-text">动态分区分配算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%88%86%E9%A1%B5%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86"><span class="toc-number">1.7.</span> <span class="toc-text">基本分页存储管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B7%E6%9C%89%E5%BF%AB%E8%A1%A8%E7%9A%84%E5%9C%B0%E5%9D%80%E5%8F%98%E6%8D%A2%E6%9C%BA%E6%9E%84"><span class="toc-number">1.8.</span> <span class="toc-text">具有快表的地址变换机构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A4%E7%BA%A7%E9%A1%B5%E8%A1%A8"><span class="toc-number">1.9.</span> <span class="toc-text">两级页表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%88%86%E6%AE%B5%E7%AE%A1%E7%90%86"><span class="toc-number">1.10.</span> <span class="toc-text">基本分段管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98"><span class="toc-number">1.11.</span> <span class="toc-text">虚拟内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E5%88%86%E9%A1%B5%E7%AE%A1%E7%90%86"><span class="toc-number">1.12.</span> <span class="toc-text">请求分页管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="toc-number">1.13.</span> <span class="toc-text">页面置换算法</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
